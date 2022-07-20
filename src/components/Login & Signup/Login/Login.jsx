@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import {
   Input,
   Box,
@@ -7,31 +7,45 @@ import {
   InputRightElement,
   Button,
   HStack,
-  Alert,AlertIcon
+  Alert,
+  AlertIcon,
+  FormHelperText,
+  FormErrorMessage,FormControl
 } from "@chakra-ui/react";
 
-import { ViewIcon, ViewOffIcon} from "@chakra-ui/icons";
-
+import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 
 const InputStyle = {
   focusBorderColor: "none",
 };
 const Login = () => {
+  const [danger, setDanger] = useState(false);
+  const [user, setuser] = useState({});
+  const [show, setShow] = useState(false);
 
-  const [user, setuser] = useState({})
-  const [show, setShow] = React.useState(false);
   const handleClick = () => setShow(!show);
+  const handleLoginUser = () => {
+    if (user.username === "") {
+      console.log("arun");
+    }
+    if (user.password === "") {
+      console.log("pass");
+    }
+  };
   const handleLogin = (e) => {
     const { name, value } = e.target;
 
     setuser({
       ...user,
-      [name]:value
+      [name]: value,
     });
   };
-  console.log(user);
+ 
+ 
   return (
-    <Box w={["20rem","25rem"]} m="auto">
+    <Box w={["22rem", "25rem"]} m="auto">
+ 
+
       <Text
         textTransform="upperCase"
         textAlign="center"
@@ -41,12 +55,20 @@ const Login = () => {
         Sign In
       </Text>
       <Box>
-      <Alert status='error'>
-    <AlertIcon />
-    There was an error processing your request
-  </Alert>
+        {danger ? (
+          <Alert status="error">
+            <AlertIcon />
+            Invalid credentials
+          </Alert>
+        ) : null}
+
         <Text>Username</Text>
-        <Input {...InputStyle} type="text" name="username" onChange={handleLogin} />
+        <Input
+          {...InputStyle}
+          type="text"
+          name="username"
+          onChange={handleLogin}
+        />
         <HStack justifyContent="space-between">
           <Text>Password</Text>
           <Text textAlign="end" pt="3" color="blue.600" fontSize="xs">
@@ -99,9 +121,26 @@ const Login = () => {
         // isLoading
         colorScheme="#112"
         bg="#111"
+        onClick={handleLoginUser}
         // spinner={<BeatLoader size={8} color="white" />}
       >
         Sign In
+      </Button>
+      <Button
+        textTransform="upperCase"
+        w="100%"
+        mt="1rem"
+        color="#111"
+        border="1px solid #111"
+        bg="#fff"
+        _hover={{
+          background: "white",
+          color: "#111",
+        }}
+
+        // spinner={<BeatLoader size={8} color="white" />}
+      >
+        Create new Account
       </Button>
     </Box>
   );
