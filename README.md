@@ -12,9 +12,10 @@ navbar.jsx --file
 
 github commands
 
-## git clone https://github.com/jitender004/wonderful-sound-2096.git
+## git clone https://github.com/jitender004/wonderful-sound-2096.git         (for one time only if you have already clone go to below commands)
      
 ## first create your branch and switch your branch (git checkout -b fw14_day-3)  then 
+
 ##  fetch all data from master branch    (git pull origin master)
 
 ## git status (displays the state of the working directory and the staging area.)
@@ -24,4 +25,6 @@ github commands
 ## git commit -m "message" (to create a snapshot of the staged changes along a timeline of a Git projects history.)
 
 ## git push origin branchname (only push your branch )
+
+then dm me to pull request
 
