@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, VStack, Flex } from "@chakra-ui/react";
-import { shop } from "../utils/data";
+import { shop } from "../utils_h/data";
 console.log(shop.shopByCategory);
 const Shop = () => {
   return (

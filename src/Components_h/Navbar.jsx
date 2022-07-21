@@ -151,7 +151,7 @@ export default function Navbar() {
                 borderBottom: "2px solid #77B6ED",
               }}
               py={6}
-ss            >
+            >
               BECOME A CONSULTANT
             </Box>
             <Box _hover={{ borderBottom: "2px solid #77B6ED" }} py={6}>
