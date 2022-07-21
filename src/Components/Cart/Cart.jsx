@@ -41,6 +41,7 @@ const Cart = () => {
 
 
                     <Box border="1px solid green" marginLeft="5px" width="38%">
+                        <Box border="1px solid grey"></Box>
                            <Box height="35px" backgroundColor="#e4e4e4" marginTop="0px" >
                              <Text fontSize='10px'  fontWeight="500" color="black" textAlign="left" padding="5px" paddingTop="10px" lineHeight="8px"> ORDER SUMMARY </Text>
                            </Box>     
@@ -57,10 +58,17 @@ const Cart = () => {
                              <Text fontSize='10px'  fontWeight="600" color="black" textAlign="left" padding="5px" paddingTop="0px" lineHeight="1px"> Estimated Total </Text>
                              <Text fontSize='10px'  fontWeight="600" color="black" marginLeft="30%"  padding="5px" paddingTop="0px" justifyContent="end" lineHeight="1px">$105.00 </Text>
                            </Box>    
+                           <hr/>
                            <Box display="flex"   marginTop="0px" >
-                           <Input height="25px" borderRadius="5px" border="1px solid grey" w="70%" placeholder='Basic usage' />
-                            <Button height="30px" borderRadius="5px" border="1px solid grey" width="30%">APPLY</Button>
+                                 <Input height="25px" borderRadius="5px" border="1px solid black" w="70%" placeholder='Enter Promo Code'></Input>
+                                  <Button height="30px" borderRadius="5px" border="1px solid black" width="30%">
+                                        <Text fontSize='10px'  fontWeight="600" color="black" textAlign="left" padding="5px" paddingTop="0px" lineHeight="1px"> Apply </Text>
+                                    </Button>
                            </Box>    
+                           <br/>
+                           <Button height="30px" borderRadius="5px" border="1px solid black" width="100%">
+                                        <Text fontSize='10px'  fontWeight="500" color="black" textAlign="left" padding="5px" paddingTop="0px" lineHeight="18px"> CONTINUE  SHOPING </Text>
+                                    </Button>
                     </Box>
                 </Box>
 
