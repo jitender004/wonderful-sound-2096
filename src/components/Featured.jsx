@@ -4,7 +4,16 @@ import { featured } from "../utils/data";
 console.log(featured);
 const Featured = () => {
   return (
-    <Box maxWidth={"1260px"} m={"auto"}>
+    <Box
+      maxWidth={"1360px"}
+      m={"auto"}
+      position={"absolute"}
+      top={"142px"}
+      left={"0"}
+      right={"0"}
+      bg={"#FFFFFF"}
+      opacity={"0.95"}
+    >
       <VStack
         width={"31%"}
         m={" 0 auto"}

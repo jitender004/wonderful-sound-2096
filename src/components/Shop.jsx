@@ -4,7 +4,16 @@ import { shop } from "../utils/data";
 console.log(shop.shopByCategory);
 const Shop = () => {
   return (
-    <Box maxWidth={"1260px"} m={"auto"}>
+    <Box
+      maxWidth={"1360px"}
+      m={"auto"}
+      position={"absolute"}
+      top={"142px"}
+      left={"0"}
+      right={"0"}
+      bg={"#FFFFFF"}
+      opacity={"0.95"}
+    >
       <Flex
         justifyContent={"space-around"}
         p={5}
