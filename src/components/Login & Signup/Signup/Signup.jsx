@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import {
   Input,
   Box,
+  Flex,
   Text,
   InputGroup,
   InputRightElement,
@@ -12,7 +13,12 @@ import {
   InputLeftAddon,
 } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
-import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
+import {
+  ViewIcon,
+  ViewOffIcon,
+  SmallCloseIcon,
+  CheckIcon,
+} from "@chakra-ui/icons";
 import { getUserRegistration } from "../../../Redux/AuthReducer/action.js";
 import { REGISTER_USER_SUCCESS } from "../../../Redux/AuthReducer/action.type.js";
 import Navbar from "./../../Navbar";
@@ -20,15 +26,22 @@ import Navbar from "./../../Navbar";
 const InputStyle = {
   focusBorderColor: "none",
 };
+const CheckIconStyle = {
+  fontSize: "sm",
+  bg: "green",
+  color: "#fff",
+  p: "0.5",
+  borderRadius: "10",
+};
 const Signup = () => {
   const [user, setuser] = useState({});
   const [show, setShow] = useState(false);
   const [fieldReq, setFieldReq] = useState(false);
   const [errUser, setErrUser] = useState();
-  const dispatch = useDispatch();
-
-  const { isLoading } = useSelector((state) => state.AuthReducer);
   const [passMatch, setPassMatch] = useState(true);
+  const [charactor, setCharactor] = useState({});
+  const dispatch = useDispatch();
+  const { isLoading } = useSelector((state) => state.AuthReducer);
 
   const handleClick = () => setShow(!show);
   const handleRegistrationEnter = (e) => {
@@ -58,8 +71,81 @@ const Signup = () => {
       }
     });
   };
+
   const handleRegister = (e) => {
+    let lengthOfPass = "";
     const { name, value } = e.target;
+    if (name === "password") {
+      lengthOfPass += value;
+    }
+
+    for (let i = 0; i < lengthOfPass?.length; i++) {
+      if (lengthOfPass.length >= 8) {
+        setCharactor({
+          ...charactor,
+          eight: true,
+        });
+        continue;
+      }
+
+      if (
+        lengthOfPass[i] === "!" ||
+        lengthOfPass[i] === "@" ||
+        lengthOfPass[i] === "#" ||
+        lengthOfPass[i] === "$"
+      ) {
+        setCharactor({
+          ...charactor,
+          symbol: value,
+        });
+        continue;
+      }
+      if (
+        lengthOfPass[i] === "1" ||
+        lengthOfPass[i] === "2" ||
+        lengthOfPass[i] === "3" ||
+        lengthOfPass[i] === "4" ||
+        lengthOfPass[i] === "5" ||
+        lengthOfPass[i] === "6" ||
+        lengthOfPass[i] === "7" ||
+        lengthOfPass[i] === "8" ||
+        lengthOfPass[i] === "9" ||
+        lengthOfPass[i] === "0"
+      ) {
+        setCharactor({
+          ...charactor,
+          numberOf: value,
+        });
+        continue;
+      }
+      let num = 25;
+      let runcondition = true;
+      let char = "abcdefghijklmnopqrstuvwxyz";
+      while (0 <= num && runcondition === true) {
+        if (char[num] === lengthOfPass[i]) {
+          setCharactor({
+            ...charactor,
+            smallletter: value,
+          });
+          runcondition = false;
+          continue;
+        }
+        num--;
+      }
+      let letterupper = true;
+      num = 25;
+      while (0 <= num && letterupper === true) {
+        if (char[num].toUpperCase() === lengthOfPass[i]) {
+          setCharactor({
+            ...charactor,
+            capitalletter: value,
+          });
+          letterupper = false;
+          continue;
+        }
+        num--;
+      }
+    }
 
     setuser({
       ...user,
@@ -104,21 +190,21 @@ const Signup = () => {
           ) : null}
 
           <Text>Your name</Text>
-          <Input
+          <Input mb="4"
             {...InputStyle}
             type="text"
             name="name"
             onChange={(e) => handleRegister(e)}
           />
           <Text>Username</Text>
-          <Input
+          <Input mb="4"
             {...InputStyle}
             type="text"
             name="username"
             onChange={(e) => handleRegister(e)}
           />
           <Text>Email</Text>
-          <Input
+          <Input mb="4"
             {...InputStyle}
             type="text"
             name="email"
@@ -126,10 +212,11 @@ const Signup = () => {
           />
           <Text>Mobile number</Text>
 
-          <InputGroup>
+          <InputGroup mb="4">
             <InputLeftAddon children="+91" />
             <Input
               type="tel"
+              maxLength="10" 
               {...InputStyle}
               name="mobile"
               onChange={(e) => handleRegister(e)}
@@ -138,15 +225,69 @@ const Signup = () => {
           <HStack justifyContent="space-between">
             <Text>Password</Text>
           </HStack>
+
           <InputGroup size="md">
             <Input
               pr="4.5rem"
               type="text"
               name="password"
               {...InputStyle}
-              onChange={(e) => handleRegister(e)}
+              onChange={(e) => {
+                handleRegister(e);
+              }}
             />
           </InputGroup>
+          <Flex gap="5" mt="2" mb="4">
+            <Text fontSize="xs">
+              {charactor?.eight ? (
+                <CheckIcon {...CheckIconStyle} />
+              ) : (
+                <SmallCloseIcon {...CrossIconStyle} />
+              )}{" "}
+              8-64 Charactors
+            </Text>
+
+            <Text fontSize="xs">
+              {charactor?.capitalletter ? (
+                <CheckIcon
+                {...CheckIconStyle}
+                />
+              ) : (
+                <SmallCloseIcon {...CrossIconStyle} />
+              )}{" "}
+              ABC
+            </Text>
+            <Text fontSize="xs">
+              {charactor?.smallletter ? (
+                <CheckIcon
+                {...CheckIconStyle}
+                />
+              ) : (
+                <SmallCloseIcon {...CrossIconStyle} />
+              )}{" "}
+              abc
+            </Text>
+            <Text fontSize="xs">
+              {charactor?.numberOf ? (
+                <CheckIcon
+                {...CheckIconStyle}
+                />
+              ) : (
+                <SmallCloseIcon {...CrossIconStyle} />
+              )}{" "}
+              123
+            </Text>
+            <Text fontSize="xs">
+              {charactor?.symbol ? (
+                <CheckIcon
+                {...CheckIconStyle}
+                />
+              ) : (
+                <SmallCloseIcon  {...CrossIconStyle} />
+              )}{" "}
+              !@#$
+            </Text>
+          </Flex>
 
           <HStack justifyContent="space-between">
             <Text>Confirm Password</Text>
@@ -231,3 +372,8 @@ const Signup = () => {
   );
 };
 export default Signup;
+
+
+const CrossIconStyle={
+  fontSize:"sm" ,bg:"red", borderRadius:"10"
+}

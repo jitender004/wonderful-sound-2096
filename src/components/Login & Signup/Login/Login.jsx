@@ -84,7 +84,7 @@ const Login = () => {
           ) : null}
 
           <Text>Username</Text>
-          <Input
+          <Input mb="4"
             {...InputStyle}
             type="text"
             name="username"
