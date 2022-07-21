@@ -35,7 +35,7 @@ export const getUserLogin = (payload) => (dispatch) => {
   return axios
     .post(`https://masai-api-mocker.herokuapp.com/auth/login`, payload)
     .then((res) => {
-      dispatch({ type: types.LOGIN_USER_SUCCESS });
+      dispatch({ type: types.LOGIN_USER_SUCCESS ,payload:res.data.token});
       return { type: types.LOGIN_USER_SUCCESS };
     })
     .catch((err) => {

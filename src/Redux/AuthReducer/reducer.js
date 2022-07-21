@@ -1,10 +1,11 @@
 import * as types from "./action.type.js";
+import { saveData, loadData } from "../../utils/LocalStorage.js";
 const initalState = {
   isRegister: false,
-  isAuth: false,
+  isAuth: loadData("isAuth") || false,
   isError: false,
   isLoading: false,
-  token: "",
+  token: loadData("token") || "",
 };
 export const reducer = (state = initalState, { type, payload }) => {
   switch (type) {
@@ -37,6 +38,10 @@ export const reducer = (state = initalState, { type, payload }) => {
         isError: false,
       };
     case types.LOGIN_USER_SUCCESS:
+      saveData("token", payload);
+      saveData("isAuth", true);
+      console.log(payload);
+
       return {
         ...state,
         isLoading: false,
