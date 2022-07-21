@@ -9,6 +9,7 @@ import {
   HStack,
   Alert,
   AlertIcon,
+  InputLeftAddon,
 } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
@@ -18,13 +19,13 @@ import { useNavigate } from "react-router-dom";
 const InputStyle = {
   focusBorderColor: "none",
 };
-const Login = () => {
+const Signup = () => {
   const [user, setuser] = useState({});
   const [show, setShow] = useState(false);
   const [fieldReq, setFieldReq] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { isAuth, isError, isLoading } = useSelector(
+  const { isRegister, isError, isLoading } = useSelector(
     (state) => state.AuthReducer
   );
 
@@ -59,11 +60,11 @@ const Login = () => {
     <Box w={["22rem", "25rem"]} m="auto">
       <Text
         textTransform="upperCase"
-        textAlign="center"
+        textAlig.n="center"
         fontWeight="bold"
         mb="2rem"
       >
-        Sign In
+        Create Account
       </Text>
       <Box>
         {fieldReq ? (
@@ -86,11 +87,34 @@ const Login = () => {
           name="username"
           onChange={handleLogin}
         />
+        <Text>Email</Text>
+        <Input
+          {...InputStyle}
+          type="text"
+          name="username"
+          onChange={handleLogin}
+        />
+        <Text>Mobile number</Text>
+
+        <InputGroup>
+          <InputLeftAddon children="+91" />
+          <Input type="tel" {...InputStyle} />
+        </InputGroup>
         <HStack justifyContent="space-between">
           <Text>Password</Text>
-          <Text textAlign="end" pt="3" color="blue.600" fontSize="xs">
-            Forgot Password?
-          </Text>
+        </HStack>
+        <InputGroup size="md">
+          <Input
+            pr="4.5rem"
+            type={show ? "text" : "password"}
+            name="password"
+            {...InputStyle}
+            onChange={handleLogin}
+          />
+        </InputGroup>
+
+        <HStack justifyContent="space-between">
+          <Text>Confirm Password</Text>
         </HStack>
         <InputGroup size="md">
           <Input
@@ -106,6 +130,7 @@ const Login = () => {
             </Box>
           </InputRightElement>
         </InputGroup>
+
         <Box>
           <Text fontSize="xs" mt="2rem" mb="2">
             This site is protecter by reCAPTCHA and the{" "}
@@ -134,20 +159,22 @@ const Login = () => {
       <Button
         textTransform="upperCase"
         w="100%"
-        mt="2rem"
+        mt="1rem"
         isLoading={isLoading && isLoading}
-        colorScheme="#112"
-        bg="#111"
         onClick={handleLoginUser}
         onKeyUp={handleLoginEnter}
+        colorScheme="#112"
+        bg="#111"
         // spinner={<BeatLoader size={8} color="white" />}
       >
-        Sign In
+        Create new Account
       </Button>
+      <Text textAlign="center" p="3">
+        Or
+      </Text>
       <Button
         textTransform="upperCase"
         w="100%"
-        mt="1rem"
         color="#111"
         border="1px solid #111"
         bg="#fff"
@@ -158,9 +185,9 @@ const Login = () => {
 
         // spinner={<BeatLoader size={8} color="white" />}
       >
-        Create new Account
+        Sign In
       </Button>
     </Box>
   );
 };
-export default Login;
+export default Signup;
