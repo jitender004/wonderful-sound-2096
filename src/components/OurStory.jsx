@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, VStack, Flex } from "@chakra-ui/react";
-import { ourstory } from "../utils_h/data";
+import { ourstory } from "../utils/data";
 const OurStory = () => {
   return (
     <Box>

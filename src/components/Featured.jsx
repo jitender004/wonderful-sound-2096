@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, VStack, Flex } from "@chakra-ui/react";
-import { featured } from "../utils_h/data";
+import { featured } from "../utils/data";
 console.log(featured);
 const Featured = () => {
   return (
