@@ -1,12 +1,23 @@
+import { BestSeller } from "./components/BestSeller/BestSeller";
+import "./App.css";
+import Cart from "./components/cart/Cart";
+import Checkout from "./components/cart/Checkout";
 import Login from "./components/Login & Signup/Login/Login";
 import Navbar from "./components/Navbar";
-import Skincares from "./components/Skincares";
-import SwipeToSlide from "./components/SwipeToSlide";
-import Home from "./pages/Home";
+import Login from "./components/Login & Signup/Login/Login";
+import PcPerks from "./components/Pc-Perks/PcPerks";
+
 function App() {
   return (
     <div className="App">
-      <Home />
+      {/* <Cart/> */}
+      <Checkout />
+      {/* <Navbar/> */}
+
+      <Login />
+
+      <BestSeller />
+      <PcPerks />
     </div>
   );
 }
