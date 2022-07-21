@@ -11,8 +11,8 @@ const Cart = () => {
          <Heading as='p' textAlign="center"  fontFamily="RFFontRoman, Arial, sans-serif;" size='30px' fontWeight="500"  lineHeight="36px" color="#272829">
                    REVIEW YOUR BAG
          </Heading>
-         <Box justifyContent="center" border="1px solid red">
-            <Box border="2px solid blue"  width="65%"  marginLeft="17%">
+         <Box justifyContent="center" >
+            <Box border=""  width="65%"  marginLeft="17%">
                  <Box backgroundColor="rgb(210,216,250)" height="40px"   justifyContent="center" >
                         <Text fontSize='10px' lineHeight="18px" color="#31668c" fontWeight="400"> Thank you for your order. Please note that R+F Instant 
                         Targeted Firming Gel Full Size will be shipped separately on a later date in July. 
@@ -22,7 +22,7 @@ const Cart = () => {
 
  {/* profuct box and order summery */}
                 <Box display="flex" marginTop="20px">
-                    <Box border="2px solid yellow" width="60%"  justifyContent="center" textAlign="center">
+                    <Box border="" width="60%"  justifyContent="center" textAlign="center">
                         <Box justifyContent="center" backgroundColor="#aebac1">                          
                             <img height="20px" style={{paddingTop:"5px",marginLeft:"35%", padding:"20px" }} src='https://www.rodanandfields.com/en-us/_ui/images/pcperks_upsell/pc-perks-logo.png' />
                             <Text fontSize='10px' lineHeight="18px" color="black" fontWeight="400"> Subscribe & Save $11.00! </Text>
@@ -61,7 +61,7 @@ const Cart = () => {
                     {/* flex right part */}
 
 
-                    <Box border="1px solid green" marginLeft="5px" width="38%">
+                    <Box border="" marginLeft="15px" width="38%">
                         <Box border="1px solid grey" borderRadius="5px">
                            <Box height="35px" backgroundColor="#e4e4e4" marginTop="0px" >
                              <Text fontSize='10px'  fontWeight="500" color="black" textAlign="left" padding="5px" paddingTop="10px" lineHeight="8px"> ORDER SUMMARY </Text>
