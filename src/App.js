@@ -8,7 +8,11 @@ import PcPerks from "./components/Pc-Perks/PcPerks";
 
 import Home from "./pages/Home";
 
+import { AllProducts } from "./components/AllProducts/AllProducts";
+
+
 import Consultant from "./components/consulatnt/Consultant";
+
 
 function App() {
   return (
@@ -16,12 +20,13 @@ function App() {
       <Login />
       {/* <Cart/> */}
       {/* <Checkout /> */}
-    
 
+      {/* <Navbar/> */}
+      {/* <Login /> */}
       {/* <Home /> */}
 
-
       {/* <BestSeller /> */}
+      <AllProducts/>
       {/* <PcPerks /> */}
     </div>
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Text } from "@chakra-ui/react";
+import { Box, Grid, Text } from "@chakra-ui/react";
 import {useState} from "react";
 import { useEffect } from "react";
 import { ProductCard } from "../ProductCard/ProductCard";
@@ -28,7 +28,7 @@ const BestSeller = () => {
 
   return (
     <>
-      <Box height={"100px"} width={"100%"} border={"1px solid red"}>
+      <Box height={"100px"} width={"100%"} >
         Navbar
       </Box>
       <Box
@@ -38,9 +38,9 @@ const BestSeller = () => {
         bgColor={"rgb(244,245,255)"}
         paddingTop={"30px"}
       >
-        <Box margin={"auto"} paddingLeft={"100px"} paddingRight={"300px"}>
-          <Text fontSize={"35px"}>Best Sellers</Text>
-          <Text fontSize={"20px"}>
+        <Box margin={"auto"} paddingLeft={"100px"} paddingRight={"300px"} marginBottom={"50px"}>
+          <Text fontSize={"32px"}>Best Sellers</Text>
+          <Text fontSize={"18px"}>
             Shop our fan favorites. We've got a full range of skincare products
             including cleansers, creams, serums + more. All created with
             dermatology-inspired formulas to address your skin concerns.
@@ -49,11 +49,13 @@ const BestSeller = () => {
           </Text>
         </Box>
       </Box>
-      {/* prouct render box */}
-      <Box height={"500px"} width={"100%"} >
+      {/* product render box */}
+      <Box paddingLeft={"60px"} paddingRight={"60px"}>
+        <Grid templateColumns='repeat(4, 1fr)' gap={6}>
        <ProductCard products={data}/>
+       </Grid>
       </Box>
-      <Box height={"100px"} width={"100%"} border={"1px solid red"}>
+      <Box height={"100px"} width={"100%"}>
         Footer
       </Box>
     </>
