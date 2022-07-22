@@ -2,12 +2,14 @@ body {
   margin: 0;
   padding: 0;
   position: relative;
-  font-family: "ProximaNovaMedium", Arial, Sans-Serif;
+  font-family: "ProximaNovaMedium, Arial, Sans-Serif";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family: "ProximaNovaRegular,Arial,Sans-Serif";
+}
+.slick-prev {
+  left: 10px;
 }
