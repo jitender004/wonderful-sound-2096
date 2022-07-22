@@ -6,6 +6,7 @@ const initalState = {
   isError: false,
   isLoading: false,
   token: loadData("token") || "",
+  userData: loadData("userData") || [],
 };
 export const reducer = (state = initalState, { type, payload }) => {
   switch (type) {
@@ -40,7 +41,7 @@ export const reducer = (state = initalState, { type, payload }) => {
     case types.LOGIN_USER_SUCCESS:
       saveData("token", payload);
       saveData("isAuth", true);
-      console.log(payload);
+    
 
       return {
         ...state,
@@ -50,12 +51,37 @@ export const reducer = (state = initalState, { type, payload }) => {
         isError: false,
       };
     case types.LOGIN_USER_FAILURE:
+      saveData("userData", "");
+      saveData("isAuth", false);
+      saveData("token", "");
       return {
         ...state,
         isLoading: false,
         isError: true,
         token: "",
         isAuth: false,
+        userData: [],
+      };
+
+    case types.PROFILE_USER_REQUEST:
+      return {
+        ...state,
+        isLoading: true,
+        isError: false,
+      };
+    case types.PROFILE_USER_SUCCESS:
+      saveData("userData", payload);
+
+      return {
+        ...state,
+        isLoading: false,
+        userData: payload,
+        isError: false,
+      };
+    case types.PROFILE_USER_FAILURE:
+      return {
+        ...state,
+        isLoading: false,
       };
 
     default:

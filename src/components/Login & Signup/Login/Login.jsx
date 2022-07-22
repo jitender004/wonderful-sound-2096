@@ -93,7 +93,7 @@ const Login = () => {
             {...InputStyle}
             type="text"
             name="username"
-            onChange={handleLogin}
+            onChange={(e)=>handleLogin(e)}
           />
           <HStack justifyContent="space-between">
             <Text>Password</Text>
@@ -107,7 +107,7 @@ const Login = () => {
               type={show ? "text" : "password"}
               name="password"
               {...InputStyle}
-              onChange={handleLogin}
+              onChange={(e)=>handleLogin(e)}
             />
             <InputRightElement width="4.5rem">
               <Box h="1.75rem" size="sm" onClick={handleClick}>
