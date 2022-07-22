@@ -1,12 +1,11 @@
 import React from "react";
-import { Box, Text } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import { Box, Text, Link } from "@chakra-ui/react";
 import SwipeToSlide from "./SwipeToSlide";
 const BestSellers = () => {
   return (
     <Box>
       <Box textAlign={"end"} bg={"#FFFFFF"} p={"10px 20px"}>
-        <Link to="#">
+        <Link href="#">
           <Text display={"inline-block"} borderBottom={"1px solid black"}>
             Shop Best Sellers
           </Text>

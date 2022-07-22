@@ -52,6 +52,7 @@ export const ourstory = [
 ];
 export const bestSellers = [
   {
+    id: 1,
     thumb_image:
       "https://www.rodanandfields.com/en-us/medias/ENFM030-Thumbnail-458x458.jpg?context=bWFzdGVyfGltYWdlc3wyNTQ2MHxpbWFnZS9qcGVnfGltYWdlcy9oZmQvaGQ2LzE0ODgyMTk1ODk4Mzk4LmpwZ3wyYThhMjQ0NTc4YjI1ZmQ1ODY3MDE5NGMyYjk3MjA2MTRmNDQ2MzdmOGVhYzMxYTFmMDk1YmIyY2Q5NDhjMzIw",
     product_name: "Total RF Serum",
@@ -70,6 +71,7 @@ export const bestSellers = [
     video: "https://youtu.be/jKIzPp2moeo",
   },
   {
+    id: 2,
     thumb_image:
       "https://www.rodanandfields.com/en-us/medias/ENHLSH01-detail.jpg?context=bWFzdGVyfGltYWdlc3wzMjIzMHxpbWFnZS9qcGVnfGltYWdlcy9oMTMvaDYwLzg4MjE4NDk2ODYwNDYuanBnfDMzOTMxMWRkOGUyMWZiOTQzY2NhYzhlODM4NTFhZDcxZTU3Yzg0NGIyMDZmODE2N2M0YTBhZDUzZDg2MGEyNzI",
     product_name: "R + F Lash Boost",
@@ -86,6 +88,7 @@ export const bestSellers = [
     video: "",
   },
   {
+    id: 3,
     thumb_image:
       "https://www.rodanandfields.com/en-us/medias/ESFB150-1168x1168-desktop-1.jpg?context=bWFzdGVyfGltYWdlc3w1MDMxN3xpbWFnZS9qcGVnfGltYWdlcy9oNTYvaDQ4LzEwMjkxODI5MTc4Mzk4LmpwZ3w3YzAwOGM3MWJkMWRhZDExYjU2NjlkYWY2YjExMmYzNTc3ZmE5ODVmOGFiYWUyM2QzZjlhZWM5YzRkOGZmNzIx",
     product_name: "ESSENTIALS Face + Body Sunscreen Broad Spectrum SPF 50",
@@ -99,6 +102,7 @@ export const bestSellers = [
     video: "",
   },
   {
+    id: 4,
     thumb_image:
       "https://www.rodanandfields.com/en-us/medias/AAEY015-1168X1168-desktop-1.jpg?context=bWFzdGVyfGltYWdlc3wyNDEyNTJ8aW1hZ2UvanBlZ3xpbWFnZXMvaDczL2g5ZC8xMzUzMzExNzU0NjUyNi5qcGd8NmFhZTU1MjBiMmI2Yjc1YTBjN2JjNjFhZDUwOGQ5OWQ1Zjk0YWI2ZDhlZjViZmQ5ZmMxNzY5MTU0MTFiZDY4ZQ",
     product_name: "REDEFINE Multi-Function Eye Cream",
@@ -115,6 +119,7 @@ export const bestSellers = [
     video: "",
   },
   {
+    id: 5,
     thumb_image:
       "https://www.rodanandfields.com/en-us/medias/HAAGR-AAWA125-AATN125-AATT030-AAPM030.jpg?context=bWFzdGVyfGltYWdlc3w4Njg1OHxpbWFnZS9qcGVnfGltYWdlcy9oMGIvaDE2LzEzNDI4MDE3NjI3MTY2LmpwZ3w4Yzc5YjRmNWI3YzhmYTUwOWQwYmY3YmFhNTJhYjZlMDBhMGQ4MDFkZjBkY2YwMWFlY2I4YTE2OTY3Nzc2OWY5",
     product_name: "REDEFINE Regimen",
@@ -131,6 +136,7 @@ export const bestSellers = [
     video: "https://youtu.be/STREOrRvFFg",
   },
   {
+    id: 6,
     thumb_image:
       "https://www.rodanandfields.com/en-us/medias/HUNRJ001-UNWA125-UNTJ125-UNTT030-UNSS030.jpg?context=bWFzdGVyfGltYWdlc3w1OTM4NnxpbWFnZS9qcGVnfGltYWdlcy9oZmMvaDVhLzEyNzcxNjk4NzM3MTgyLmpwZ3w1MzZkNTYzMDJjMzgxYmMwMDZlYjA0ZWQ4ZjMwYTg5ZDIwMzZlMGMzZTA1ZTlmYzJiZTVhOTQxYzMxOTEwMzM2",
     product_name: "UNBLEMISH Regimen",
@@ -147,6 +153,7 @@ export const bestSellers = [
     video: "https://youtu.be/cCgFFtLsyi4",
   },
   {
+    id: 7,
     thumb_image:
       "https://www.rodanandfields.com/en-us/medias/ENHEFG1-570x570-Desktop.png?context=bWFzdGVyfGltYWdlc3wyMjI3N3xpbWFnZS9wbmd8aW1hZ2VzL2g1NC9oZGUvMTQ1MzIxNjcyMDQ4OTQucG5nfDIwY2RhYjY4NDkwNzYwMTU4Yzg2MjhhYjc0ODVkNWE5MTNjYTIzMzVkOTAxMmFjNzI2M2ZjYzM3ZGM5MzA0ZDY",
     product_name: "R + F Active Hydration Serum",
@@ -162,6 +169,7 @@ export const bestSellers = [
     video: "https://youtu.be/Xb-yU_oF-GY",
   },
   {
+    id: 8,
     thumb_image:
       "https://www.rodanandfields.com/en-us/medias/ENBR001-detail.jpg?context=bWFzdGVyfHJvb3R8NDA3NjR8aW1hZ2UvanBlZ3xoNzIvaDdmLzEzNTMzMTYyNzk5MTM0LmpwZ3w5ZGQ5MDY2M2ZjM2U4M2NjZmI4OTRiMGU0OGI0YmZjNjRiNDUxM2RkYjNlZDY2MDEzZWU4YWQ4NTc2ZjRiNTA4",
     product_name: "Rodan + Fields Active Hydration Body Replenish",
