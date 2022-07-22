@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Input,
   Box,
@@ -26,6 +26,10 @@ const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { isError, isLoading } = useSelector((state) => state.AuthReducer);
+
+  useEffect(() => {
+    document.title = "Rodan + Fields® | Login";
+  }, []);
 
   const handleClick = () => setShow(!show);
   const handleLoginEnter = (e) => {
@@ -84,11 +88,12 @@ const Login = () => {
           ) : null}
 
           <Text>Username</Text>
-          <Input mb="4"
+          <Input
+            mb="4"
             {...InputStyle}
             type="text"
             name="username"
-            onChange={handleLogin}
+            onChange={(e)=>handleLogin(e)}
           />
           <HStack justifyContent="space-between">
             <Text>Password</Text>
@@ -102,7 +107,7 @@ const Login = () => {
               type={show ? "text" : "password"}
               name="password"
               {...InputStyle}
-              onChange={handleLogin}
+              onChange={(e)=>handleLogin(e)}
             />
             <InputRightElement width="4.5rem">
               <Box h="1.75rem" size="sm" onClick={handleClick}>
@@ -144,7 +149,6 @@ const Login = () => {
           bg="#111"
           onClick={handleLoginUser}
           onKeyUp={handleLoginEnter}
-        
         >
           Sign In
         </Button>
@@ -159,7 +163,6 @@ const Login = () => {
             background: "white",
             color: "#111",
           }}
-
         >
           Create new Account
         </Button>

@@ -5,20 +5,26 @@ import Checkout from "./components/cart/Checkout";
 import Navbar from "./components/Navbar";
 import Login from "./components/Login & Signup/Login/Login";
 import PcPerks from "./components/Pc-Perks/PcPerks";
+
 import Home from "./pages/Home";
 
 import Consultant from "./components/consulatnt/Consultant";
+
 function App() {
   return (
     <div className="App">
-      <Cart/>
-      {/* <Navbar/>
-      <Consultant/> */}
+      <Login />
+      {/* <Cart/> */}
       {/* <Checkout /> */}
-      
-      {/* <Login /> */}
+    
+
       {/* <Home /> */}
-   </div>
+
+
+      {/* <BestSeller /> */}
+      {/* <PcPerks /> */}
+    </div>
+
   );
 }
 
