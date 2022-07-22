@@ -13,9 +13,9 @@ function App() {
       {/* <Checkout /> */}
       {/* <Navbar/> */}
       {/* <Login /> */}
-      <Home />
+      {/* <Home /> */}
       {/* <BestSeller /> */}
-      {/* <PcPerks /> */}
+      <PcPerks />
     </div>
   );
 }
