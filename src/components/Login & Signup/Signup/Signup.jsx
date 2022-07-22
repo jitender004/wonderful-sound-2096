@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Input,
   Box,
@@ -42,6 +42,10 @@ const Signup = () => {
   const [charactor, setCharactor] = useState({});
   const dispatch = useDispatch();
   const { isLoading } = useSelector((state) => state.AuthReducer);
+
+  useEffect(() => {
+    document.title = "Rodan + Fields® | Signup";
+  }, []);
 
   const handleClick = () => setShow(!show);
   const handleRegistrationEnter = (e) => {
@@ -190,21 +194,24 @@ const Signup = () => {
           ) : null}
 
           <Text>Your name</Text>
-          <Input mb="4"
+          <Input
+            mb="4"
             {...InputStyle}
             type="text"
             name="name"
             onChange={(e) => handleRegister(e)}
           />
           <Text>Username</Text>
-          <Input mb="4"
+          <Input
+            mb="4"
             {...InputStyle}
             type="text"
             name="username"
             onChange={(e) => handleRegister(e)}
           />
           <Text>Email</Text>
-          <Input mb="4"
+          <Input
+            mb="4"
             {...InputStyle}
             type="text"
             name="email"
@@ -216,7 +223,7 @@ const Signup = () => {
             <InputLeftAddon children="+91" />
             <Input
               type="tel"
-              maxLength="10" 
+              maxLength="10"
               {...InputStyle}
               name="mobile"
               onChange={(e) => handleRegister(e)}
@@ -249,9 +256,7 @@ const Signup = () => {
 
             <Text fontSize="xs">
               {charactor?.capitalletter ? (
-                <CheckIcon
-                {...CheckIconStyle}
-                />
+                <CheckIcon {...CheckIconStyle} />
               ) : (
                 <SmallCloseIcon {...CrossIconStyle} />
               )}{" "}
@@ -259,9 +264,7 @@ const Signup = () => {
             </Text>
             <Text fontSize="xs">
               {charactor?.smallletter ? (
-                <CheckIcon
-                {...CheckIconStyle}
-                />
+                <CheckIcon {...CheckIconStyle} />
               ) : (
                 <SmallCloseIcon {...CrossIconStyle} />
               )}{" "}
@@ -269,9 +272,7 @@ const Signup = () => {
             </Text>
             <Text fontSize="xs">
               {charactor?.numberOf ? (
-                <CheckIcon
-                {...CheckIconStyle}
-                />
+                <CheckIcon {...CheckIconStyle} />
               ) : (
                 <SmallCloseIcon {...CrossIconStyle} />
               )}{" "}
@@ -279,11 +280,9 @@ const Signup = () => {
             </Text>
             <Text fontSize="xs">
               {charactor?.symbol ? (
-                <CheckIcon
-                {...CheckIconStyle}
-                />
+                <CheckIcon {...CheckIconStyle} />
               ) : (
-                <SmallCloseIcon  {...CrossIconStyle} />
+                <SmallCloseIcon {...CrossIconStyle} />
               )}{" "}
               !@#$
             </Text>
@@ -373,7 +372,8 @@ const Signup = () => {
 };
 export default Signup;
 
-
-const CrossIconStyle={
-  fontSize:"sm" ,bg:"red", borderRadius:"10"
-}
+const CrossIconStyle = {
+  fontSize: "sm",
+  bg: "red",
+  borderRadius: "10",
+};
