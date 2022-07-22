@@ -1,4 +1,4 @@
-import { ReactNode, useState } from "react";
+import { ReactNode, useState, useEffect, useRef } from "react";
 import {
   Box,
   Flex,
@@ -16,6 +16,9 @@ import Shop from "./Shop";
 import Featured from "./Featured";
 import OurStory from "./OurStory";
 import Searchbar from "./Searchbar";
+import { useSelector, useDispatch } from "react-redux";
+import { getUserDetails } from "../Redux/AuthReducer/action.js";
+import { loadData } from "../utils/LocalStorage.js";
 const Links = ["Dashboard", "Projects", "Team"];
 
 const NavLink = ({ children }) => (
@@ -39,6 +42,18 @@ export default function Navbar() {
   const [featuredStatus, setFeaturedStatus] = useState(false);
   const [ourStoryStatus, setOurStoryStatus] = useState(false);
   const [searchStatus, setSearchStatus] = useState(false);
+  const { isAuth, userData } = useSelector((state) => state.AuthReducer);
+  const dispatch = useDispatch();
+ 
+
+  useEffect(() => {
+   if(isAuth){
+    dispatch(getUserDetails(loadData("usename")));
+   }
+  }, [dispatch, isAuth]);
+
+  console.log(userData, "from Navbar");
+
   return (
     <>
       <Box bg={"#FFFF"} boxShadow={" rgba(149, 157, 165, 0.2) 0px 8px 24px;"}>
@@ -81,7 +96,8 @@ export default function Navbar() {
                 <SearchIcon h={4} />
               </Flex>
               <Flex alignItems={"center"} gridGap={2}>
-                <Box fontSize={"12px"}>Sign in</Box>
+                {isAuth ? null : <Box fontSize={"12px"}>Sign in</Box>}
+
                 <Image
                   h={3}
                   src={"https://cdn-icons-png.flaticon.com/512/747/747376.png"}
