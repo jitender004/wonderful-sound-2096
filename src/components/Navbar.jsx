@@ -47,7 +47,7 @@ export default function Navbar() {
             h={16}
             px={4}
             py={9}
-            maxWidth={"1260px"}
+            maxWidth={"1360px"}
             m={"auto"}
             color={"#272929"}
             fontWeight={"600"}
