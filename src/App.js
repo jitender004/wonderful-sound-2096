@@ -25,9 +25,11 @@ function App() {
       {/* <Login /> */}
       {/* <Home /> */}
 
-      {/* <BestSeller /> */}
+      <PcPerks />
+
       <AllProducts/>
-      {/* <PcPerks /> */}
+
+
     </div>
 
   );
