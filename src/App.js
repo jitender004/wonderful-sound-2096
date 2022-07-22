@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import Login from "./components/Login & Signup/Login/Login";
 import PcPerks from "./components/Pc-Perks/PcPerks";
 import Home from "./pages/Home";
+import { AllProducts } from "./components/AllProducts/AllProducts";
 function App() {
   return (
     <div className="App">
@@ -13,8 +14,9 @@ function App() {
       {/* <Checkout /> */}
       {/* <Navbar/> */}
       {/* <Login /> */}
-      <Home />
+      {/* <Home /> */}
       {/* <BestSeller /> */}
+      <AllProducts/>
       {/* <PcPerks /> */}
     </div>
   );
