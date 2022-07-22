@@ -12,12 +12,13 @@ import { AllProducts } from "./components/AllProducts/AllProducts";
 
 
 import Consultant from "./components/consulatnt/Consultant";
+import StarRating from "./components/ProductCard/StarRating";
 
 
 function App() {
   return (
     <div className="App">
-      <Login />
+      {/* <Login /> */}
       {/* <Cart/> */}
       {/* <Checkout /> */}
 
@@ -25,8 +26,8 @@ function App() {
       {/* <Login /> */}
       {/* <Home /> */}
 
-      <PcPerks />
-
+      {/* <PcPerks /> */}
+{/* <StarRating/> */}
       <AllProducts/>
 
 
