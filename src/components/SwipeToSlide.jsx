@@ -10,8 +10,8 @@ import {
   Text,
   Button,
   Flex,
+  Link,
 } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
 import { bestSellers } from "../utils/data";
 import { StarIcon } from "@chakra-ui/icons";
 export default class SwipeToSlide extends Component {
@@ -43,7 +43,7 @@ export default class SwipeToSlide extends Component {
               m="auto"
               fontFamily="RFFONTROMAN"
               fontSize="40px"
-              fontWeigth="100"
+              fontWeight="100"
             >
               Discover the life-changing products loved by millions.
             </Text>
@@ -56,7 +56,7 @@ export default class SwipeToSlide extends Component {
               }
               backgroundSize="cover"
             >
-              <Link to="#">
+              <Link href="#">
                 <Box
                   mt="10"
                   ml="10"
@@ -71,7 +71,13 @@ export default class SwipeToSlide extends Component {
           </Box>
           {bestSellers.map((item) => {
             return (
-              <Box bg={"#FFFFFF"} p={"10px 10px"} my="20px" position="relative">
+              <Box
+                key={item.id}
+                bg={"#FFFFFF"}
+                p={"10px 10px"}
+                my="20px"
+                position="relative"
+              >
                 <Text
                   position="absolute"
                   right="10"
