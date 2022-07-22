@@ -44,7 +44,7 @@ const Signup = () => {
   const { isLoading } = useSelector((state) => state.AuthReducer);
 
   useEffect(() => {
-    document.title = "Rodan + Fields® | SIGNUP";
+    document.title = "Rodan + Fields® | Signup";
   }, []);
 
   const handleClick = () => setShow(!show);

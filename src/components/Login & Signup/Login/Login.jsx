@@ -28,7 +28,7 @@ const Login = () => {
   const { isError, isLoading } = useSelector((state) => state.AuthReducer);
 
   useEffect(() => {
-    document.title = "Rodan + Fields® | LOGIN";
+    document.title = "Rodan + Fields® | Login";
   }, []);
 
   const handleClick = () => setShow(!show);
