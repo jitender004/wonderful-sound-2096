@@ -3,7 +3,16 @@ import { Box, VStack, Flex } from "@chakra-ui/react";
 import { ourstory } from "../utils/data";
 const OurStory = () => {
   return (
-    <Box>
+    <Box
+      w={"1360px"}
+      m={"auto"}
+      position={"absolute"}
+      top={"142px"}
+      left={"0"}
+      right={"0"}
+      bg={"#FFFFFF"}
+      opacity={"0.95"}
+    >
       <VStack
         width={"15%"}
         m={" 0 auto"}

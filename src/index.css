@@ -1,6 +1,8 @@
 body {
   margin: 0;
-  font-family: ProximaNovaMedium, Arial, Sans-Serif;
+  padding: 0;
+  position: relative;
+  font-family: "ProximaNovaMedium", Arial, Sans-Serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

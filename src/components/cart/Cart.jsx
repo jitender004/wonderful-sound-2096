@@ -1,11 +1,21 @@
 import { Box, Button, Heading, Text , Link, Input,Image, HStack} from '@chakra-ui/react'
 
 import { ExternalLinkIcon,DeleteIcon } from '@chakra-ui/icons'
-
-
-import React from 'react'
+import axios from "axios"
+import React, { useEffect, useState } from 'react'
 
 const Cart = () => {
+    const [bag , setBag]  = useState([]);
+     
+     useEffect(()=>{
+        axios.get("https://rodan-field.herokuapp.com/api/products")
+        .then((res)=>{
+            setBag(res.data)
+        })
+     },[])
+console.log("bag", bag)
+
+
   return (
     <Box  justifyContent="center">
          <Heading as='p' textAlign="center"  fontFamily="RFFontRoman, Arial, sans-serif;" size='30px' fontWeight="500"  lineHeight="36px" color="#272829">
@@ -25,7 +35,7 @@ const Cart = () => {
                     <Box border="" width="60%"  justifyContent="center" textAlign="center">
                         <Box justifyContent="center" backgroundColor="#aebac1">                          
                             <img height="20px" style={{paddingTop:"5px",marginLeft:"35%", padding:"20px" }} src='https://www.rodanandfields.com/en-us/_ui/images/pcperks_upsell/pc-perks-logo.png' />
-                            <Text fontSize='10px' lineHeight="18px" color="black" fontWeight="400"> Subscribe & Save $11.00! </Text>
+                            <Text fontSize='10px' lineHeight="18px" color="black" fontWeight="400"> Subscribe {"&"} Save $11.00! </Text>
                             <Text fontSize='10px' lineHeight="6px" color="black" fontWeight="400">Join PC Perks for $19.95 to Save 10% + Get Free Shipping on orders $80+ </Text>
                             <Link href='#' fontSize='10px' lineHeight="6px" color="black" fontWeight="400">
                                     view more
@@ -36,7 +46,45 @@ const Cart = () => {
                         </Box>
                         <br/>
 {/* left half after add MEMBERSHIP */}
-                        <Box>
+           
+                     {
+                        bag.map((e)=>{
+                            return(
+                                <>
+                                  <Box border="1px solid red">
+                               <HStack spacing='24px' border="1px solid grey" height="98px" justifyContent="space-evenly" >
+                                   <Box boxSize='50px'>
+                                       <Image src={e.img} alt='Dan Abramov' />
+                                       {/* 'https://www.rodanandfields.com/en-us/medias/ENHLSH01-458x458.jpg?context=bWFzdGVyfGltYWdlc3w0MDkxfGltYWdlL2pwZWd8aW1hZ2VzL2gzNS9oODgvMTM5Nzc1NDQ2ODc2NDYuanBnfDlmYTEwMTFkMjFiNzMwYjlhNjU0NTNiYjU5ZDBmMGY3ZWIzNmNiZmYwMTJhMGYzMTFkMzA1ODhkOGI1MjdlMmE' */}
+                                   </Box>
+                                     <Box >
+                                        <Text fontSize='10px'  fontWeight="500" color="black" textAlign="left" padding="5px"  lineHeight="5px">{e.name}</Text>
+                                         <Box border="1px solid black">
+                                            <Button>-</Button>
+                                            <Button>1</Button>
+                                            <Button>+</Button>
+                                         </Box>
+                                     </Box>
+                                     <Box >
+                                          <DeleteIcon/>
+                                          <Text fontSize='10px'  fontWeight="500" color="black" textAlign="left" padding="5px"  lineHeight="5px">{e.price} .00</Text>
+                                     </Box>
+                                </HStack>
+                        </Box>
+                   
+
+                                
+                                
+                                </>
+                            )
+                        })
+                     }
+
+
+
+
+
+                        {/* <Box border="1px solid red">
                                <HStack spacing='24px' border="1px solid grey" height="98px" justifyContent="space-evenly" >
                                    <Box boxSize='50px'>
                                        <Image src='https://www.rodanandfields.com/en-us/medias/ENHLSH01-458x458.jpg?context=bWFzdGVyfGltYWdlc3w0MDkxfGltYWdlL2pwZWd8aW1hZ2VzL2gzNS9oODgvMTM5Nzc1NDQ2ODc2NDYuanBnfDlmYTEwMTFkMjFiNzMwYjlhNjU0NTNiYjU5ZDBmMGY3ZWIzNmNiZmYwMTJhMGYzMTFkMzA1ODhkOGI1MjdlMmE' alt='Dan Abramov' />
@@ -54,8 +102,8 @@ const Cart = () => {
                                           <Text fontSize='10px'  fontWeight="500" color="black" textAlign="left" padding="5px"  lineHeight="5px"> $350.00</Text>
                                      </Box>
                                 </HStack>
-                        </Box>
-                    </Box>
+                        </Box> */}
+                    </Box> 
 
 
                     {/* flex right part */}
