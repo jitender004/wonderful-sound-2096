@@ -29,8 +29,9 @@ const ProductCard = ({ products, cate }) => {
               paddingBottom={"10px"}
               display="flex"
               justifyContent={"left"}
-              gap="1"
+              gap="2"
               alignItems={"center"}
+              fontSize="sm"
             >
               <StarRating /> {products.rating}
             </Text>
