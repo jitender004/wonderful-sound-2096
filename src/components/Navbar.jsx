@@ -70,13 +70,15 @@ export default function Navbar() {
             justifyContent={"space-between"}
           >
             <IconButton
-              size={"md"}
+              size={["sm", "md", "lg", "xl"]}
               icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
               aria-label={"Open Menu"}
-              display={{ md: "none" }}
+              display={{ sm: "block", md: "none" }}
               onClick={isOpen ? onClose : onOpen}
             />
-            <Box fontSize={"12px"}>FIND A CONSULTANT</Box>
+            <Box fontSize={"12px"} display={{ sm: "none", md: "block" }}>
+              FIND A CONSULTANT
+            </Box>
             <Box>
               <Image
                 src={
