@@ -18,11 +18,18 @@ const MainRoute = () => {
       <Route path="/signup" element={<Signup />} />
       <Route path="/bestsellers" element={<BestSellers />} />
       <Route path="/allproducts" element={<AllProducts />} />
-      <Route path="/cart" element={<Cart/>}/>
-      <Route path="/checkout" element={<ReqAuth><Checkout/></ReqAuth>}/>
-      <Route path="/ourstory" element={<OurStory/>}/>
-      <Route path="*" element={<Error/>} />
+      <Route path="/cart" element={<Cart />} />
+      <Route
+        path="/checkout"
+        element={
+          <ReqAuth>
+            <Checkout />
+          </ReqAuth>
+        }
+      />
+      <Route path="/ourstory" element={<OurStory />} />
 
+      <Route path="*" element={<Error />} />
     </Routes>
   );
 };

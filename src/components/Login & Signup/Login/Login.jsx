@@ -26,11 +26,14 @@ const Login = () => {
   const [fieldReq, setFieldReq] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { isError, isLoading } = useSelector((state) => state.AuthReducer);
+  const {isAuth, isError, isLoading } = useSelector((state) => state.AuthReducer);
 
   useEffect(() => {
     document.title = "Rodan + Fields® | Login";
-  }, []);
+    if(isAuth){
+      navigate('/')
+    }
+  }, [isAuth, navigate]);
 
   const handleClick = () => setShow(!show);
   const handleLoginEnter = (e) => {

@@ -55,6 +55,7 @@ const ProductCard = ({ products, cate }) => {
 
 export { ProductCard };
 
+// eslint-disable-next-line no-lone-blocks
 {
   /* <div>
 {products.map((products) =>(

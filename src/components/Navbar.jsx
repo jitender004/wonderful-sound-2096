@@ -76,11 +76,11 @@ export default function Navbar() {
             <Box fontSize={"12px"}>FIND A CONSULTANT</Box>
             <Box>
               <RouterLink to="/">
-              <Image
-                src={
-                  "https://www.rodanandfields.com/en-us/medias/rf-logo.svg?context=bWFzdGVyfGltYWdlc3w3MzczfGltYWdlL3N2Zyt4bWx8aW1hZ2VzL2g2MC9oYWIvODgyMjE0NzE4NjcxOC5zdmd8YjNmMmU2YTg5MTM0NTMzM2Y2ODg2ZmRkZTJhNmY2OWZhYmYyYjk5NWQxODkxODFiYjVkY2MxY2NjOWRlMzA5OA"
-                }
-              />
+                <Image
+                  src={
+                    "https://www.rodanandfields.com/en-us/medias/rf-logo.svg?context=bWFzdGVyfGltYWdlc3w3MzczfGltYWdlL3N2Zyt4bWx8aW1hZ2VzL2g2MC9oYWIvODgyMjE0NzE4NjcxOC5zdmd8YjNmMmU2YTg5MTM0NTMzM2Y2ODg2ZmRkZTJhNmY2OWZhYmYyYjk5NWQxODkxODFiYjVkY2MxY2NjOWRlMzA5OA"
+                  }
+                />
               </RouterLink>
             </Box>
             <Flex alignItems={"center"} gridGap={7}>
@@ -93,22 +93,24 @@ export default function Navbar() {
                 <SearchIcon h={4} />
               </Flex>
               <RouterLink to="/login">
-              <Flex alignItems={"center"} gridGap={2}>
-                {isAuth ? null : <Box fontSize={"12px"}>Sign in</Box>}
+                <Flex alignItems={"center"} gridGap={2}>
+                  {isAuth ? null : <Box fontSize={"12px"}>Sign in</Box>}
 
-                <Image
-                  h={3}
-                  src={"https://cdn-icons-png.flaticon.com/512/747/747376.png"}
-                />
-              </Flex>
+                  <Image
+                    h={3}
+                    src={
+                      "https://cdn-icons-png.flaticon.com/512/747/747376.png"
+                    }
+                  />
+                </Flex>
               </RouterLink>
               <RouterLink to="/cart">
-              <Image
-                h={10}
-                src={
-                  "https://t3.ftcdn.net/jpg/02/18/80/56/240_F_218805689_XFdEHu12ZOap9WylFYbb04MqASrax6VL.jpg"
-                }
-              />
+                <Image
+                  h={10}
+                  src={
+                    "https://t3.ftcdn.net/jpg/02/18/80/56/240_F_218805689_XFdEHu12ZOap9WylFYbb04MqASrax6VL.jpg"
+                  }
+                />
               </RouterLink>
             </Flex>
           </Flex>
@@ -163,7 +165,7 @@ export default function Navbar() {
               OUR STORY
             </Box>
             <Box _hover={{ borderBottom: "2px solid #77B6ED" }} py={6}>
-              PERKS PROGRAM
+              <RouterLink to="/pcperks">PERKS PROGRAM</RouterLink>
             </Box>
             <Box
               _hover={{

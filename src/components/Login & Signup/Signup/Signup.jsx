@@ -43,11 +43,14 @@ const Signup = () => {
   const [charactor, setCharactor] = useState({});
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { isLoading } = useSelector((state) => state.AuthReducer);
+  const { isAuth, isLoading } = useSelector((state) => state.AuthReducer);
 
   useEffect(() => {
     document.title = "Rodan + Fields® | Signup";
-  }, []);
+    if (isAuth) {
+      navigate("/");
+    }
+  }, [isAuth, navigate]);
 
   const handleClick = () => setShow(!show);
   const handleRegistrationEnter = (e) => {
