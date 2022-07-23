@@ -5,7 +5,6 @@ import { addToCartItem } from "../../Redux/AuthReducer/action.js";
 import { useDispatch } from "react-redux";
 const ProductCard = ({ products, cate }) => {
   const dispatch = useDispatch();
- 
 
   const handleAddToBag = (e, products) => {
     dispatch(addToCartItem(products));

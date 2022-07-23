@@ -9,6 +9,7 @@ import {
   useDisclosure,
   useColorModeValue,
   Stack,
+  Text,
 } from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
 import { HamburgerIcon, CloseIcon, SearchIcon } from "@chakra-ui/icons";
@@ -41,7 +42,7 @@ export default function Navbar() {
   const [featuredStatus, setFeaturedStatus] = useState(false);
   const [ourStoryStatus, setOurStoryStatus] = useState(false);
   const [searchStatus, setSearchStatus] = useState(false);
-  const isAuth = useSelector((state) => state.AuthReducer.isAuth);
+  const { isAuth, cartItems } = useSelector((state) => state.AuthReducer);
 
   return (
     <>
@@ -97,20 +98,33 @@ export default function Navbar() {
                   </RouterLink>
                 ) : (
                   <RouterLink to="/login">
-                   <Flex gridGap={2} alignItems={"center"}>
-                   <Box fontSize={"12px"}>Sign in</Box>
-                    <Image
-                      h={3}
-                      src={
-                        "https://cdn-icons-png.flaticon.com/512/747/747376.png"
-                      }
-                    />
-                   </Flex>
+                    <Flex gridGap={2} alignItems={"center"}>
+                      <Box fontSize={"12px"}>Sign in</Box>
+                      <Image
+                        h={3}
+                        src={
+                          "https://cdn-icons-png.flaticon.com/512/747/747376.png"
+                        }
+                      />
+                    </Flex>
                   </RouterLink>
                 )}
               </Flex>
 
               <RouterLink to="/cart">
+                {cartItems >= 0 ? null : (
+                  <Text
+                    position="absolute"
+                    bg="#111"
+                    w="6"
+                    h="6"
+                    color="#fff"
+                    textAlign="center"
+                    borderRadius="100%"
+                  >
+                    {cartItems?.length}
+                  </Text>
+                )}
                 <Image
                   h={10}
                   src={

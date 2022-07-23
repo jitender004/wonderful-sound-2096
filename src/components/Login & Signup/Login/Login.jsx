@@ -14,7 +14,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { getUserLogin } from "../../../Redux/AuthReducer/action.js";
 import { LOGIN_USER_SUCCESS } from "../../../Redux/AuthReducer/action.type.js";
-import { useNavigate,useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import Navbar from "./../../Navbar";
 import { Link as RouterLink } from "react-router-dom";
 const InputStyle = {
@@ -26,15 +26,17 @@ const Login = () => {
   const [fieldReq, setFieldReq] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const location =useLocation();
-  const {isAuth, isError, isLoading } = useSelector((state) => state.AuthReducer);
-const coming=(location?.state.from.pathname);
+  const location = useLocation();
+  const { isAuth, isError, isLoading } = useSelector(
+    (state) => state.AuthReducer
+  );
+  const coming = location?.state?.from?.pathname;
   useEffect(() => {
     document.title = "Rodan + Fields® | Login";
-    if(isAuth){
-      navigate("/",{replace:true})
+    if (isAuth) {
+      navigate("/", { replace: true });
     }
-  }, [ isAuth, navigate]);
+  }, [isAuth, navigate]);
 
   const handleClick = () => setShow(!show);
   const handleLoginEnter = (e) => {
