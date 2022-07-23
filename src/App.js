@@ -22,13 +22,13 @@ function App() {
       {/* <Cart/> */}
       {/* <Checkout /> */}
 
-      {/* <Navbar/> */}
+      <Navbar/>
       {/* <Login /> */}
       {/* <Home /> */}
 
       {/* <PcPerks /> */}
 {/* <StarRating/> */}
-      <AllProducts/>
+      {/* <AllProducts/> */}
 
 
     </div>
