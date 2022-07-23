@@ -157,9 +157,9 @@ export default function Navbar() {
             <Box
               onMouseOver={() => setShopStatus(true)}
               onMouseOut={() => {
-                setTimeout(() => {
-                  setShopStatus(false);
-                }, 1000);
+                // setTimeout(() => {
+                setShopStatus(false);
+                // }, 200);
               }}
               _hover={{ borderBottom: "2px solid #77B6ED" }}
               py={6}
