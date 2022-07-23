@@ -10,15 +10,17 @@ const Searchbar = ({ setSearchStatus }) => {
       top={0}
       left={0}
       right={0}
-      py={10}
-      h={"300px"}
+      py={8}
+      fontFamily={"-moz-initial"}
+      fontWeight="thin"
+      h={"325px"}
     >
       <Box w={"70%"} m={"auto"}>
         <Flex alignItems={"center"}>
           <Input variant="flushed" placeholder="Flushed" />
           <CloseIcon onClick={() => setSearchStatus(false)} />
         </Flex>
-        <Box color={"#222222"} fontSize={"12px"}>
+        <Box color={"#222222"} fontSize={"sm"}>
           Search for products, concerns and keywords.
         </Box>
       </Box>
@@ -27,7 +29,7 @@ const Searchbar = ({ setSearchStatus }) => {
         m={"40px auto"}
         justifyContent={"space-between"}
         color={"#222222"}
-        fontSize={"16px"}
+        fontSize={"sm"}
       >
         <VStack w={"33%"} alignItems={"start"}>
           <Box fontWeight={"bold"}>Common Searches</Box>
@@ -49,11 +51,11 @@ const Searchbar = ({ setSearchStatus }) => {
           <Box>
             <Image
               w={"200px"}
-              h={"200px"}
+              h={"150px"}
               src="https://www.rodanandfields.com/en-us/medias/21-GR-Spot-Corrector-Core-Regimen-SEARCH-promotion-widescreen.jpg?context=bWFzdGVyfHJvb3R8MTUxMjN8aW1hZ2UvanBlZ3xoN2EvaDA5LzEyNzgwOTI4MjcwMzY2LmpwZ3xlZDYwZjU3ZDkyMDVhYzEyMmRjYzJjZGMzMjg3OGU2MGI0M2FkYjc0ZmE3YzUzYjgxOTgxMmU4ZjA1OWY1MDAw"
             />
           </Box>
-          <VStack alignItems={"start"} w={"40%"}>
+          <VStack alignItems={"start"} w={"50%"}>
             <Box>Tackle stubborn dark marks with REVERSE SPOT CORRECTOR.</Box>
             <Box fontWeight={"bold"} textDecoration={"underline"}>
               Shop Now
