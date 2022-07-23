@@ -7,6 +7,9 @@ import { Box, Image ,Text, Input, Slider,
 import React from 'react'
 
 const Checkout = () => {
+   const alertFun=()=>{
+      alert("Your order Has been Placed")
+   }
   return (
     <Box >
            <Box marginLeft="40%" padding="18px" >
@@ -46,6 +49,10 @@ const Checkout = () => {
                         <Box border="0.1px solid #3b3b3b"></Box>
                        
                       </Box>
+                      <Button onClick={alertFun} height="30px" borderRadius="5px" marginTop="15px"  border="1px solid black" width="100%" bg="black">
+                                        <Text fontSize='10px'  fontWeight="500" color="white"   padding="5px" paddingTop="0px" lineHeight="18px">SECURE CHECKOUT</Text>
+                                        
+                           </Button>
 
                  </Box>
                  {/* 2  right half*/}

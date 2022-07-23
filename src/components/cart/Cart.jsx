@@ -4,9 +4,29 @@ import { Box, Button, Heading, Text , Link, Input,Image, HStack} from '@chakra-u
 import { ExternalLinkIcon,DeleteIcon } from '@chakra-ui/icons'
 
 
-import React from 'react'
+import React,{useEffect, useState} from 'react'
+import axios from 'axios';
 
 const Cart = () => {
+   const [bag, setBag] = useState([]);
+   let [count, setCount] = useState(1);
+   
+        useEffect(()=>{
+            axios.get("https://rodan-field.herokuapp.com/api/products")
+            .then((res)=>{
+               setBag(res.data)
+            })          
+        },[])
+
+      const counter1=()=>{
+          if(count>=1){
+          setCount(count  - 1)
+          }
+      }  
+      const counter2=()=>{
+          setCount(count + 1)
+      }  
+    console.log("beg", bag)
   return (
     <Box  justifyContent="center">
          <Heading as='p' textAlign="center"  fontFamily="RFFontRoman, Arial, sans-serif;" size='30px' fontWeight="500"  lineHeight="36px" color="#272829">
@@ -38,25 +58,31 @@ const Cart = () => {
                         <br/>
 {/* left half after add MEMBERSHIP */}
                       
-                        <Box>
-                               <HStack spacing='24px' border="1px solid grey" height="98px" justifyContent="space-evenly" >
-                                   <Box boxSize='50px'>
-                                       <Image src='https://www.rodanandfields.com/en-us/medias/ENHLSH01-458x458.jpg?context=bWFzdGVyfGltYWdlc3w0MDkxfGltYWdlL2pwZWd8aW1hZ2VzL2gzNS9oODgvMTM5Nzc1NDQ2ODc2NDYuanBnfDlmYTEwMTFkMjFiNzMwYjlhNjU0NTNiYjU5ZDBmMGY3ZWIzNmNiZmYwMTJhMGYzMTFkMzA1ODhkOGI1MjdlMmE' alt='Dan Abramov' />
-                                   </Box>
-                                     <Box >
-                                        <Text fontSize='10px'  fontWeight="500" color="black" textAlign="left" padding="5px"  lineHeight="5px"> TOTAL RF SERUM</Text>
-                                         <Box border="1px solid black">
-                                            <Button>-</Button>
-                                            <Button>1</Button>
-                                            <Button>+</Button>
-                                         </Box>
-                                     </Box>
-                                     <Box >
-                                          <DeleteIcon/>
-                                          <Text fontSize='10px'  fontWeight="500" color="black" textAlign="left" padding="5px"  lineHeight="5px"> $350.00</Text>
-                                     </Box>
-                                </HStack>
-                        </Box>
+                        {
+                           bag.map((e)=>{
+                              return(
+                                <>
+                            
+                                  <HStack key={e.id} spacing='24px' border="1px solid grey" height="98px" justifyContent="space-evenly" >
+                                      <Box boxSize='50px'>
+                                          <Image src={e.img} alt='Dan Abramov' />
+                                      </Box>
+                                        <Box >
+                                           <Text fontSize='10px'  fontWeight="500" color="black" justifyContent="center" textAlign="center" padding="5px"  lineHeight="15px">{e.name}</Text>
+                                            <Box border="1px solid black" width="140px" height="35px" justifyContent="center" textAlign="center" >
+                                               <Button  background="white" height="30px"  onClick={counter1 }>-</Button>
+                                               <Button  background="white" height="30px" fontWeight="300">{count}</Button>
+                                               <Button   background="white" height="30px" onClick={counter2}>+</Button>
+                                            </Box>
+                                        </Box>
+                                        <Box >
+                                             <DeleteIcon/>
+                                             <Text fontSize='10px'  fontWeight="500" color="black" textAlign="left" padding="5px"  lineHeight="5px"  >{e.price * count} .00</Text>
+                                        </Box>
+                                   </HStack>
+                                 </>
+                           )})
+                         }
                     </Box>
 
 
@@ -125,10 +151,7 @@ const Cart = () => {
                             </HStack>
                     </Box>
                 </Box>
-
-
-            </Box>
-            
+            </Box>            
          </Box>
     </Box>
   )

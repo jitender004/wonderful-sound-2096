@@ -20,7 +20,8 @@ function App() {
     <div className="App">
       {/* <Login /> */}
       {/* <Cart/> */}
-      {/* <Checkout /> */}
+      <Checkout />
+      {/* <Consultant/> */}
 
       {/* <Navbar/> */}
       {/* <Login /> */}
@@ -28,7 +29,7 @@ function App() {
 
       {/* <PcPerks /> */}
 {/* <StarRating/> */}
-      <AllProducts/>
+      {/* <AllProducts/> */}
 
 
     </div>
