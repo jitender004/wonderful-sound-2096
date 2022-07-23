@@ -1,8 +1,16 @@
 import { Box, Button, Image, Text } from "@chakra-ui/react";
 import React from "react";
 import StarRating from "./StarRating";
-
+import { addToCartItem } from "../../Redux/AuthReducer/action.js";
+import { useDispatch } from "react-redux";
 const ProductCard = ({ products, cate }) => {
+  const dispatch = useDispatch();
+ 
+
+  const handleAddToBag = (e, products) => {
+    dispatch(addToCartItem(products));
+  };
+
   return (
     <>
       {products.map((products) => (
@@ -43,6 +51,7 @@ const ProductCard = ({ products, cate }) => {
               bgColor={"white"}
               fontFamily={"sans-serif"}
               fontWeight={"light"}
+              onClick={(e) => handleAddToBag(e, products)}
             >
               ADD TO BAG
             </Button>
@@ -54,24 +63,3 @@ const ProductCard = ({ products, cate }) => {
 };
 
 export { ProductCard };
-
-// eslint-disable-next-line no-lone-blocks
-{
-  /* <div>
-{products.map((products) =>(
-  <div key={products.id} style={{display:"flex"}}>
-  <div>
-  <img src={products.img} alt="product img" style={{width:"200px"}}/>
-  <h3>Product-Name: {products.name} </h3>
-  <h6 >Description: {products.description}</h6>
-  <button >ADD TO CART</button>
-  <div>
-    <button>+</button>
-    <button>-</button>
-    <button>REMOVE FROM CART</button>
-  </div>
-  </div>
-</div>
-))}
-</div> */
-}

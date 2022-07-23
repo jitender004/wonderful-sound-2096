@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import {
   Box,
   Flex,
@@ -16,9 +16,8 @@ import Shop from "./Shop";
 import Featured from "./Featured";
 import OurStory from "./OurStory";
 import Searchbar from "./Searchbar";
-import { useSelector, useDispatch } from "react-redux";
-import { getUserDetails } from "../Redux/AuthReducer/action.js";
-import { loadData } from "../utils/LocalStorage.js";
+import { useSelector } from "react-redux";
+
 const Links = ["Dashboard", "Projects", "Team"];
 
 const NavLink = ({ children }) => (
@@ -42,14 +41,7 @@ export default function Navbar() {
   const [featuredStatus, setFeaturedStatus] = useState(false);
   const [ourStoryStatus, setOurStoryStatus] = useState(false);
   const [searchStatus, setSearchStatus] = useState(false);
-  const { isAuth, userData } = useSelector((state) => state.AuthReducer);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (isAuth) {
-      dispatch(getUserDetails(loadData("usename")));
-    }
-  }, [dispatch, isAuth]);
+  const isAuth = useSelector((state) => state.AuthReducer.isAuth);
 
   return (
     <>
@@ -92,18 +84,30 @@ export default function Navbar() {
                 <Box fontSize={"12px"}>Search</Box>
                 <SearchIcon h={4} />
               </Flex>
-              <RouterLink to="/login">
-                <Flex alignItems={"center"} gridGap={2}>
-                  {isAuth ? null : <Box fontSize={"12px"}>Sign in</Box>}
 
-                  <Image
-                    h={3}
-                    src={
-                      "https://cdn-icons-png.flaticon.com/512/747/747376.png"
-                    }
-                  />
-                </Flex>
-              </RouterLink>
+              <Flex alignItems={"center"} gridGap={2}>
+                {isAuth ? (
+                  <RouterLink to="/accountdetails">
+                    <Image
+                      h={3}
+                      src={
+                        "https://cdn-icons-png.flaticon.com/512/747/747376.png"
+                      }
+                    />
+                  </RouterLink>
+                ) : (
+                  <RouterLink to="/login">
+                    <Box fontSize={"12px"}>Sign in</Box>
+                    <Image
+                      h={3}
+                      src={
+                        "https://cdn-icons-png.flaticon.com/512/747/747376.png"
+                      }
+                    />
+                  </RouterLink>
+                )}
+              </Flex>
+
               <RouterLink to="/cart">
                 <Image
                   h={10}

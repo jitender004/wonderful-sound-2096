@@ -9,6 +9,7 @@ import Checkout from "./../components/cart/Checkout";
 import ReqAuth from "./../ReqAuth/ReqAuth";
 import OurStory from "./../components/OurStory";
 import Error from "./Error";
+import AccountDetails from "./AccountDetails";
 
 const MainRoute = () => {
   return (
@@ -28,6 +29,14 @@ const MainRoute = () => {
         }
       />
       <Route path="/ourstory" element={<OurStory />} />
+      <Route
+        path="accountdetails"
+        element={
+          <ReqAuth>
+            <AccountDetails />{" "}
+          </ReqAuth>
+        }
+      />
 
       <Route path="*" element={<Error />} />
     </Routes>
