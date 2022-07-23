@@ -28,9 +28,6 @@ const BestSeller = () => {
 
   return (
     <>
-      <Box height={"100px"} width={"100%"} >
-        Navbar
-      </Box>
       <Box
         height={"250px"}
         width={"100%"}
@@ -54,9 +51,6 @@ const BestSeller = () => {
         <Grid templateColumns='repeat(4, 1fr)' gap={6}>
        <ProductCard products={data}/>
        </Grid>
-      </Box>
-      <Box height={"100px"} width={"100%"}>
-        Footer
       </Box>
     </>
   );

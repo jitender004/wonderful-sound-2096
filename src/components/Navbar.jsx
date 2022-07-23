@@ -2,7 +2,7 @@ import { ReactNode, useState, useEffect, useRef } from "react";
 import {
   Box,
   Flex,
-  Avatar,
+  Text,
   HStack,
   Link,
   Image,
@@ -19,7 +19,8 @@ import Searchbar from "./Searchbar";
 import { useSelector, useDispatch } from "react-redux";
 import { getUserDetails } from "../Redux/AuthReducer/action.js";
 import { loadData } from "../utils/LocalStorage.js";
-const Links = ["Dashboard", "Projects", "Team"];
+import { Link as HomeLink } from "react-router-dom";
+const Links = ["Sign In", "Search"];
 
 const NavLink = ({ children }) => (
   <Link
@@ -44,15 +45,12 @@ export default function Navbar() {
   const [searchStatus, setSearchStatus] = useState(false);
   const { isAuth, userData } = useSelector((state) => state.AuthReducer);
   const dispatch = useDispatch();
- 
 
   useEffect(() => {
-   if(isAuth){
-    dispatch(getUserDetails(loadData("usename")));
-   }
+    if (isAuth) {
+      dispatch(getUserDetails(loadData("usename")));
+    }
   }, [dispatch, isAuth]);
-
-  console.log(userData, "from Navbar");
 
   return (
     <>
@@ -70,59 +68,81 @@ export default function Navbar() {
             justifyContent={"space-between"}
           >
             <IconButton
-              size={["sm", "md", "lg", "xl"]}
               icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
               aria-label={"Open Menu"}
-              display={{ sm: "block", md: "none" }}
+              display={{ base: "block", md: "none" }}
               onClick={isOpen ? onClose : onOpen}
             />
-            <Box fontSize={"12px"} display={{ sm: "none", md: "block" }}>
+            <Box fontSize={"12px"} display={{ base: "none", md: "block" }}>
               FIND A CONSULTANT
             </Box>
-            <Box>
-              <Image
-                src={
-                  "https://www.rodanandfields.com/en-us/medias/rf-logo.svg?context=bWFzdGVyfGltYWdlc3w3MzczfGltYWdlL3N2Zyt4bWx8aW1hZ2VzL2g2MC9oYWIvODgyMjE0NzE4NjcxOC5zdmd8YjNmMmU2YTg5MTM0NTMzM2Y2ODg2ZmRkZTJhNmY2OWZhYmYyYjk5NWQxODkxODFiYjVkY2MxY2NjOWRlMzA5OA"
-                }
-              />
-            </Box>
+            <HomeLink to="/">
+              <Box>
+                <Image
+                  src={
+                    "https://www.rodanandfields.com/en-us/medias/rf-logo.svg?context=bWFzdGVyfGltYWdlc3w3MzczfGltYWdlL3N2Zyt4bWx8aW1hZ2VzL2g2MC9oYWIvODgyMjE0NzE4NjcxOC5zdmd8YjNmMmU2YTg5MTM0NTMzM2Y2ODg2ZmRkZTJhNmY2OWZhYmYyYjk5NWQxODkxODFiYjVkY2MxY2NjOWRlMzA5OA"
+                  }
+                />
+              </Box>
+            </HomeLink>
+
             <Flex alignItems={"center"} gridGap={7}>
               <Flex
                 onClick={() => setSearchStatus(!searchStatus)}
                 alignItems={"center"}
                 gridGap={2}
+                display={{ base: "none", md: "flex" }}
               >
                 <Box fontSize={"12px"}>Search</Box>
                 <SearchIcon h={4} />
               </Flex>
-              <Flex alignItems={"center"} gridGap={2}>
+              <Flex
+                alignItems={"center"}
+                gridGap={2}
+                display={{ base: "none", md: "flex" }}
+              >
                 {isAuth ? null : <Box fontSize={"12px"}>Sign in</Box>}
 
-                <Image
-                  h={3}
-                  src={"https://cdn-icons-png.flaticon.com/512/747/747376.png"}
-                />
+                <Box>
+                  <Image
+                    h={3}
+                    src={
+                      "https://cdn-icons-png.flaticon.com/512/747/747376.png"
+                    }
+                  />
+                </Box>
               </Flex>
-              <Image
-                h={10}
-                src={
-                  "https://t3.ftcdn.net/jpg/02/18/80/56/240_F_218805689_XFdEHu12ZOap9WylFYbb04MqASrax6VL.jpg"
-                }
-              />
+              <HomeLink to="/cart">
+                <Image
+                  w="70px"
+                  src={
+                    "https://t3.ftcdn.net/jpg/02/18/80/56/240_F_218805689_XFdEHu12ZOap9WylFYbb04MqASrax6VL.jpg"
+                  }
+                />
+              </HomeLink>
             </Flex>
           </Flex>
 
           {isOpen ? (
             <Box pb={4} display={{ md: "none" }}>
               <Stack as={"nav"} spacing={4}>
-                {Links.map((link) => (
-                  <NavLink key={link}>{link}</NavLink>
-                ))}
+                <Text pl={{ base: "20px" }} fontWeight="bold" fontSize="14px">
+                  FIND A CONSULTANT{" "}
+                </Text>
+                <Flex gridGap="10px" alignItems="center" pl="10px">
+                  <Image
+                    h={3}
+                    src={
+                      "https://cdn-icons-png.flaticon.com/512/747/747376.png"
+                    }
+                  />
+                  <Text> Sign in</Text>
+                </Flex>
               </Stack>
             </Box>
           ) : null}
         </Box>
-        <Box display={{ xs: "none" }}>
+        <Box display={{ base: "none", md: "block" }}>
           <HStack
             w={"55%"}
             maxWidth={"1260px"}
@@ -136,7 +156,11 @@ export default function Navbar() {
           >
             <Box
               onMouseOver={() => setShopStatus(true)}
-              onMouseOut={() => setShopStatus(false)}
+              onMouseOut={() => {
+                // setTimeout(() => {
+                setShopStatus(false);
+                // }, 200);
+              }}
               _hover={{ borderBottom: "2px solid #77B6ED" }}
               py={6}
             >

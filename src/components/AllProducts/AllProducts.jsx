@@ -25,19 +25,13 @@ const AllProducts = ()=>{
    console.log(data2)
     return(
         <>
-        <Box height={"100px"} width={"100%"} >
-        Navbar
-      </Box>
-        <Box display={"flex"}>
+        <Box display={"flex"} paddingTop={"50px"}>
         <SideBar/>
         <Box paddingLeft={"60px"} paddingRight={"60px"}>
         <Grid templateColumns='repeat(3, 1fr)' gap={6}>
          <ProductCard products={data2}/>
         </Grid>
         </Box>
-      </Box>
-      <Box height={"100px"} width={"100%"}>
-        Footer
       </Box>
         </>
     )

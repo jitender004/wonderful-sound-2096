@@ -12,7 +12,9 @@ import { AllProducts } from "./components/AllProducts/AllProducts";
 
 import Consultant from "./components/consulatnt/Consultant";
 import StarRating from "./components/ProductCard/StarRating";
+
 import Blog from "./components/Blogs/Blog";
+
 
 function App() {
   return (
@@ -21,14 +23,23 @@ function App() {
       {/* <Cart/> */}
       {/* <Checkout /> */}
 
-      {/* <Navbar/> */}
-      {/* <Login /> */}
+      <Navbar/>
+    
+
 
       {/* <PcPerks /> */}
       {/* <AllProducts/> */}
 
       <Blog />
-      {/* <Home /> */}
+     
+
+      <Home />
+
+    
+
+
+
+
     </div>
   );
 }
