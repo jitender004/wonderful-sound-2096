@@ -1,10 +1,11 @@
-import Login from "./components/Login & Signup/Login/Login";
+
+import MainRoute from "./Pages/MainRoute";
 
 
 function App() {
   return (
     <div className="App">
-      <Login />
+     <MainRoute/>
       
 
     </div>

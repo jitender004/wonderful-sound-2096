@@ -1,8 +1,7 @@
-import { ReactNode, useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import {
   Box,
   Flex,
-  Avatar,
   HStack,
   Link,
   Image,
@@ -11,6 +10,7 @@ import {
   useColorModeValue,
   Stack,
 } from "@chakra-ui/react";
+import { Link as RouterLink } from "react-router-dom";
 import { HamburgerIcon, CloseIcon, SearchIcon } from "@chakra-ui/icons";
 import Shop from "./Shop";
 import Featured from "./Featured";
@@ -44,15 +44,12 @@ export default function Navbar() {
   const [searchStatus, setSearchStatus] = useState(false);
   const { isAuth, userData } = useSelector((state) => state.AuthReducer);
   const dispatch = useDispatch();
- 
 
   useEffect(() => {
-   if(isAuth){
-    dispatch(getUserDetails(loadData("usename")));
-   }
+    if (isAuth) {
+      dispatch(getUserDetails(loadData("usename")));
+    }
   }, [dispatch, isAuth]);
-
-  console.log(userData, "from Navbar");
 
   return (
     <>
@@ -78,11 +75,13 @@ export default function Navbar() {
             />
             <Box fontSize={"12px"}>FIND A CONSULTANT</Box>
             <Box>
+              <RouterLink to="/">
               <Image
                 src={
                   "https://www.rodanandfields.com/en-us/medias/rf-logo.svg?context=bWFzdGVyfGltYWdlc3w3MzczfGltYWdlL3N2Zyt4bWx8aW1hZ2VzL2g2MC9oYWIvODgyMjE0NzE4NjcxOC5zdmd8YjNmMmU2YTg5MTM0NTMzM2Y2ODg2ZmRkZTJhNmY2OWZhYmYyYjk5NWQxODkxODFiYjVkY2MxY2NjOWRlMzA5OA"
                 }
               />
+              </RouterLink>
             </Box>
             <Flex alignItems={"center"} gridGap={7}>
               <Flex
@@ -93,6 +92,7 @@ export default function Navbar() {
                 <Box fontSize={"12px"}>Search</Box>
                 <SearchIcon h={4} />
               </Flex>
+              <RouterLink to="/login">
               <Flex alignItems={"center"} gridGap={2}>
                 {isAuth ? null : <Box fontSize={"12px"}>Sign in</Box>}
 
@@ -101,12 +101,15 @@ export default function Navbar() {
                   src={"https://cdn-icons-png.flaticon.com/512/747/747376.png"}
                 />
               </Flex>
+              </RouterLink>
+              <RouterLink to="/cart">
               <Image
                 h={10}
                 src={
                   "https://t3.ftcdn.net/jpg/02/18/80/56/240_F_218805689_XFdEHu12ZOap9WylFYbb04MqASrax6VL.jpg"
                 }
               />
+              </RouterLink>
             </Flex>
           </Flex>
 
@@ -141,7 +144,7 @@ export default function Navbar() {
               SHOP
             </Box>
             <Box _hover={{ borderBottom: "2px solid #77B6ED" }} py={6}>
-              BEST SELLERS
+              <RouterLink to="/bestsellers"> BEST SELLERS</RouterLink>
             </Box>
             <Box
               onMouseOver={() => setFeaturedStatus(true)}

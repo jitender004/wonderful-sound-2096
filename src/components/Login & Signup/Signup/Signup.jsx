@@ -22,6 +22,7 @@ import {
 import { getUserRegistration } from "../../../Redux/AuthReducer/action.js";
 import { REGISTER_USER_SUCCESS } from "../../../Redux/AuthReducer/action.type.js";
 import Navbar from "./../../Navbar";
+import { useNavigate, Link as RouterLink } from "react-router-dom";
 
 const InputStyle = {
   focusBorderColor: "none",
@@ -41,6 +42,7 @@ const Signup = () => {
   const [passMatch, setPassMatch] = useState(true);
   const [charactor, setCharactor] = useState({});
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { isLoading } = useSelector((state) => state.AuthReducer);
 
   useEffect(() => {
@@ -65,7 +67,7 @@ const Signup = () => {
     setFieldReq(false);
     dispatch(getUserRegistration(user)).then((res) => {
       if (res.type === REGISTER_USER_SUCCESS && res.errorStatus === false) {
-        return console.log("redirect");
+        return navigate("/login", { replace: true });
       } else if (
         res.type === REGISTER_USER_SUCCESS &&
         res.errorStatus === true
@@ -364,7 +366,7 @@ const Signup = () => {
             color: "#111",
           }}
         >
-          Sign In
+          <RouterLink to="/login"> Sign In</RouterLink>
         </Button>
       </Box>
     </>

@@ -16,6 +16,7 @@ import { getUserLogin } from "../../../Redux/AuthReducer/action.js";
 import { LOGIN_USER_SUCCESS } from "../../../Redux/AuthReducer/action.type.js";
 import { useNavigate } from "react-router-dom";
 import Navbar from "./../../Navbar";
+import { Link as RouterLink } from "react-router-dom";
 const InputStyle = {
   focusBorderColor: "none",
 };
@@ -44,7 +45,7 @@ const Login = () => {
     setFieldReq(false);
 
     dispatch(getUserLogin(user)).then((res) => {
-      if (res === LOGIN_USER_SUCCESS) {
+      if (res.type === LOGIN_USER_SUCCESS) {
         navigate("/", { replace: true });
       }
     });
@@ -164,7 +165,7 @@ const Login = () => {
             color: "#111",
           }}
         >
-          Create new Account
+          <RouterLink to="/signup">Create new Account</RouterLink>
         </Button>
       </Box>
     </>

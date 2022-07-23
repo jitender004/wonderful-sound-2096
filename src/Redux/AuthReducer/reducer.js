@@ -41,7 +41,6 @@ export const reducer = (state = initalState, { type, payload }) => {
     case types.LOGIN_USER_SUCCESS:
       saveData("token", payload);
       saveData("isAuth", true);
-    
 
       return {
         ...state,
