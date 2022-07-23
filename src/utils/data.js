@@ -186,3 +186,86 @@ export const bestSellers = [
     video: "https://youtu.be/OskoRVfbEns",
   },
 ];
+
+export const instaPosts = [
+  {
+    id: 1,
+    img: "https://cdn-yotpo-images-production.yotpo.com/instagram/63/18192350263192663/low_resolution.jpg",
+    status: true,
+  },
+  {
+    id: 2,
+    img: "https://cdn-yotpo-images-production.yotpo.com/instagram/63/17936354605688863/low_resolution.jpg",
+    status: true,
+  },
+  {
+    id: 3,
+    img: "https://cdn-yotpo-images-production.yotpo.com/instagram/21/18173775787084721/low_resolution.jpg",
+    status: true,
+  },
+  {
+    id: 4,
+    img: "https://cdn-yotpo-images-production.yotpo.com/instagram/51/17914183256051851/low_resolution.jpg",
+    status: true,
+  },
+  {
+    id: 5,
+    img: "https://cdn-yotpo-images-production.yotpo.com/instagram/24/17897284883279424/low_resolution.jpg",
+    status: true,
+  },
+  {
+    id: 6,
+    img: "https://cdn-yotpo-images-production.yotpo.com/instagram/85/18124584601232185/low_resolution.jpg",
+    status: true,
+  },
+  {
+    id: 7,
+    img: "https://cdn-yotpo-images-production.yotpo.com/instagram/80/17889235427243880/low_resolution.jpg",
+    status: true,
+  },
+  {
+    id: 8,
+    img: "https://cdn-yotpo-images-production.yotpo.com/instagram/94/17878795901249094/low_resolution.jpg",
+    status: true,
+  },
+  {
+    id: 9,
+    img: "https://cdn-yotpo-images-production.yotpo.com/instagram/72/17856529154727072/low_resolution.jpg",
+    status: true,
+  },
+  {
+    id: 10,
+    img: "https://cdn-yotpo-images-production.yotpo.com/instagram/69/17869295408638069/low_resolution.jpg",
+    status: true,
+  },
+  {
+    id: 11,
+    img: "https://cdn-yotpo-images-production.yotpo.com/instagram/35/18149372425211935/low_resolution.jpg",
+    status: true,
+  },
+  {
+    id: 12,
+    img: "https://cdn-yotpo-images-production.yotpo.com/instagram/30/17928229432858630/low_resolution.jpg",
+    status: true,
+  },
+  {
+    id: 13,
+    img: "https://cdn-yotpo-images-production.yotpo.com/instagram/58/18145885435212058/low_resolution.jpg",
+    status: true,
+  },
+  {
+    id: 14,
+    img: "https://cdn-yotpo-images-production.yotpo.com/instagram/13/17938930987707113/low_resolution.jpg",
+    status: true,
+  },
+  {
+    id: 15,
+    img: "https://cdn-yotpo-images-production.yotpo.com/instagram/26/17937476044732026/low_resolution.jpg",
+    status: true,
+  },
+  {
+    id: 16,
+    img: "https://cdn-yotpo-images-production.yotpo.com/instagram/21/17918148008057821/low_resolution.jpg",
+    status: true,
+  },
+];
