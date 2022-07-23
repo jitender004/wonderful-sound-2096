@@ -22,7 +22,7 @@ const AllProducts = ()=>{
       },[setData2]);
     
 
-   console.log(data2)
+
     return(
         <>
         <Box height={"100px"} width={"100%"} >

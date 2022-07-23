@@ -24,7 +24,7 @@ const BestSeller = () => {
       },[setData]);
     
 
-   console.log(data)
+   
 
   return (
     <>
