@@ -22,7 +22,7 @@ export const InstaFeed = () => {
     slidesToShow: 4,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 4000,
+    autoplaySpeed: 2000,
   };
 
   const handleMouseOver = (index) => {

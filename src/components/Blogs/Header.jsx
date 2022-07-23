@@ -10,15 +10,7 @@ const settings = {
   slidesToShow: 1,
   slidesToScroll: 1,
   appendDots: (dots) => (
-    <div
-      style={
-        {
-          // backgroundColor: "#ddd",
-          // borderRadius: "50%",
-          // padding: "10px",
-        }
-      }
-    >
+    <div>
       <ul style={{ margin: "0px", borderRadius: "50%" }}> {dots} </ul>
     </div>
   ),
@@ -26,12 +18,11 @@ const settings = {
     <div
       style={{
         width: "25px",
-        color: "blue",  
-        
         borderRadius: "50%",
-        color: "black",
-        paddingRight: "2px",
-        backgroundColor: "black",
+        color: "grey",
+        // paddingRight: "2px",
+        backgroundColor: "grey",
+        // marginTop: "20px",
         // border: "1px blue solid",
       }}
     >
@@ -44,7 +35,7 @@ const Header = () => {
   return (
     <>
       <Navbar />
-      <Box width="96%" margin="auto">
+      <Box width="96%" margin="auto" >
         {/* <h2> Single Item</h2> */}
         <Slider {...settings}>
           <Box margin={"auto"}>
@@ -66,7 +57,7 @@ const Header = () => {
                     letterSpacing="3px"
                     mb={"40px"}
                   >
-                   ℜ𝔬𝔡𝔞𝔫 + 𝔉𝔦𝔢𝔩𝔡𝔰 𝔐𝔲𝔩𝔱𝔦-𝔐𝔢𝔡 𝔗𝔥𝔢𝔯𝔞𝔭𝔶 𝔄𝔭𝔭𝔯𝔬𝔞𝔠𝔥
+                    ℜ𝔬𝔡𝔞𝔫 + 𝔉𝔦𝔢𝔩𝔡𝔰 𝔐𝔲𝔩𝔱𝔦-𝔐𝔢𝔡 𝔗𝔥𝔢𝔯𝔞𝔭𝔶 𝔄𝔭𝔭𝔯𝔬𝔞𝔠𝔥
                   </Heading>
                   <Text fontSize="xs" mb={"25px"} width="60%" margin="auto">
                     OUR FOUNDERS DISCUSS THE MAGIC BEHIND WHAT MAKES R+F SKIN

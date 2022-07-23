@@ -4,6 +4,8 @@ import {
   Center,
   Container,
   Flex,
+  Grid,
+  GridItem,
   Heading,
   Image,
   Link,
@@ -11,6 +13,8 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import Slider from "react-slick";
+import Footer from "../Footer";
+import { InstaFeed } from "../InstaFeed";
 import Skincares from "../Skincares";
 const BlogSliderSlick = () => {
   const settings = {
@@ -178,22 +182,30 @@ const BlogSliderSlick = () => {
           <Center
             textjustify="center"
             lineHeight={"1.2rem"}
-            textAlign={"center"}
             w="100%"
             bgColor={"whitesmoke"}
             fontSize="sm"
           >
             <Box>
-              <Heading fontSize={"3xl"} lineHeight={"3rem"} letterSpacing="3px" margin={"auto"} width="80%" mb={"40px"}>
+              <Text ml={"5"} marginBottom={"20px"}>
+                SKINCARE GUIDES
+              </Text>
+              <Heading
+                fontSize={"3xl"}
+                lineHeight={"3rem"}
+                letterSpacing="3px"
+                ml={"5"}
+                width="80%"
+                mb={"30px"}
+              >
                 𝐆𝐞𝐭 𝐄𝐧𝐞𝐫𝐠𝐢𝐳𝐞𝐝-𝐋𝐨𝐨𝐤𝐢𝐧𝐠 𝐒𝐤𝐢𝐧 𝐰𝐢𝐭𝐡 𝐓𝐨𝐭𝐚𝐥 𝐑𝐅 𝐒𝐞𝐫𝐮𝐦
               </Heading>
-              <Text fontSize="sm" mb={"25px"} width="80%" margin="auto">
-                Add the products you want to your cart and check the PC Perks
-                box in your shopping bag to opt in on any order $80+
+              <Text fontSize="sm" ml={"5"} mb={"25px"} width="80%">
+                LEARN ALL THERE IS TO KNOW ABOUT OUR TOTAL RF SERUM.
               </Text>
-              <Button mt={"20px"} colorScheme={"black"} variant="outline">
-                SHOP NOW
-              </Button>
+              <Link mt={"100px"} ml={"5"} href="#" textDecor={"underline"}>
+                READ MORE
+              </Link>
             </Box>
           </Center>
           <Image
@@ -204,6 +216,72 @@ const BlogSliderSlick = () => {
           ></Image>
         </Flex>
       </Box>
+      <Box mt={"20"}>
+        <Heading fontSize={"2xl"} textAlign="center" letterSpacing="2px">
+          𝙱𝚕𝚘𝚐 𝙲𝚊𝚝𝚎𝚐𝚘𝚛𝚒𝚎𝚜
+        </Heading>
+        <Grid
+          ml={"20"}
+          templateColumns="repeat(5, 1fr)"
+          gap={6}
+          marginTop="40px"
+        >
+          <GridItem>
+            <Image
+              width={"60%"}
+              mb={"5"}
+              src="https://www.rodanandfields.com/en-us/assets/blog/doctors-notes.svg"
+            ></Image>
+            <Link href="#" textDecoration="underline">
+              DOCTOR'S NOTES
+            </Link>
+          </GridItem>
+          <GridItem>
+            <Image
+              width={"60%"}
+              mb={"5"}
+              src="https://www.rodanandfields.com/en-us/assets/blog/lifestyle.svg"
+            ></Image>
+            <Link ml={"6"} href="#" textDecoration="underline">
+              LIFESTYLE
+            </Link>
+          </GridItem>
+          <GridItem>
+            <Image
+              width={"60%"}
+              mb={"5"}
+              src="https://www.rodanandfields.com/en-us/assets/blog/pro-tips.svg"
+            ></Image>
+            <Link ml={"8"} href="#" textDecoration="underline">
+              PRO TIPS
+            </Link>
+          </GridItem>
+          <GridItem>
+            <Image
+              width={"60%"}
+              mb={"5"}
+              src="https://www.rodanandfields.com/en-us/assets/blog/science-of-skincare.svg"
+            ></Image>
+            <Link href="#" textDecoration="underline">
+              SCIENCE OF SKINCARE
+            </Link>
+          </GridItem>
+          <GridItem>
+            <Image
+              width={"60%"}
+              mb={"5"}
+              src="https://www.rodanandfields.com/en-us/assets/blog/skincare-guides.svg"
+            ></Image>
+            <Link href="#" textDecoration="underline">
+              SKINCARE GUIDES
+            </Link>
+          </GridItem>
+        </Grid>
+      </Box>
+      <Box width={"90%"} m="30px auto 0">
+        <InstaFeed />
+      </Box>
+      <Footer />
     </>
   );
 };
