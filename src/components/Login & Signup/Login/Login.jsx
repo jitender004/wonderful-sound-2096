@@ -28,13 +28,13 @@ const Login = () => {
   const navigate = useNavigate();
   const location =useLocation();
   const {isAuth, isError, isLoading } = useSelector((state) => state.AuthReducer);
-console.log(location);
+const coming=(location?.state.from.pathname);
   useEffect(() => {
     document.title = "Rodan + Fields® | Login";
     if(isAuth){
-      navigate('/')
+      navigate("/",{replace:true})
     }
-  }, [isAuth, navigate]);
+  }, [ isAuth, navigate]);
 
   const handleClick = () => setShow(!show);
   const handleLoginEnter = (e) => {
@@ -50,7 +50,7 @@ console.log(location);
 
     dispatch(getUserLogin(user)).then((res) => {
       if (res.type === LOGIN_USER_SUCCESS) {
-        navigate("/", { replace: true });
+        navigate(`${coming}`, { replace: true });
       }
     });
   };

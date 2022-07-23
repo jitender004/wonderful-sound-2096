@@ -10,7 +10,7 @@ import {
 } from "@chakra-ui/react";
 
 import { DeleteIcon } from "@chakra-ui/icons";
-
+import {Link as RouterLink} from "react-router-dom";
 import { useSelector } from "react-redux";
 import React from "react";
 
@@ -324,7 +324,10 @@ const Cart = () => {
                   paddingTop="0px"
                   lineHeight="18px"
                 >
+                  <RouterLink to="/checkout">
                   SECURE CHECKOUT
+                  </RouterLink>
+                  
                 </Text>
               </Button>
 

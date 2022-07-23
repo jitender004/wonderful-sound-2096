@@ -97,13 +97,15 @@ export default function Navbar() {
                   </RouterLink>
                 ) : (
                   <RouterLink to="/login">
-                    <Box fontSize={"12px"}>Sign in</Box>
+                   <Flex gridGap={2} alignItems={"center"}>
+                   <Box fontSize={"12px"}>Sign in</Box>
                     <Image
                       h={3}
                       src={
                         "https://cdn-icons-png.flaticon.com/512/747/747376.png"
                       }
                     />
+                   </Flex>
                   </RouterLink>
                 )}
               </Flex>
