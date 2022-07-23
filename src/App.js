@@ -22,11 +22,11 @@ function App() {
 
       {/* <Navbar/> */}
       {/* <Login /> */}
-      {/* <Home /> */}
+      <Home />
 
       {/* <PcPerks /> */}
       {/* <StarRating/> */}
-      <AllProducts />
+      {/* <AllProducts /> */}
     </div>
   );
 }
