@@ -10,10 +10,8 @@ import Home from "./pages/Home";
 
 import { AllProducts } from "./components/AllProducts/AllProducts";
 
-
 import Consultant from "./components/consulatnt/Consultant";
 import StarRating from "./components/ProductCard/StarRating";
-
 
 function App() {
   return (
@@ -24,15 +22,15 @@ function App() {
 
       <Navbar/>
       {/* <Login /> */}
-      {/* <Home /> */}
+      <Home />
 
       {/* <PcPerks /> */}
 {/* <StarRating/> */}
       {/* <AllProducts/> */}
 
 
-    </div>
 
+    </div>
   );
 }
 

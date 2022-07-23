@@ -42,12 +42,13 @@ export default class Responsive extends Component {
         <Slider {...settings}>
           <Box p="30px 10px 20px 20px">
             <Flex
+              flexDirection={{ base: "column-reverse", lg: "row" }}
               justifyContent="space-between"
               bg="#F4EFE7"
               borderRadius="12px"
               overflow="hidden"
             >
-              <Box w="40%" p="30px 0px 30px  30px">
+              <Box w={{ base: "auto", lg: "40%" }} p="30px 0px 30px  30px">
                 <Text
                   fontSize="40px"
                   fontFamily="RFFONTROMAN"
@@ -66,7 +67,12 @@ export default class Responsive extends Component {
                   </Box>
                 </Link>
               </Box>
-              <Box w="50%" borderRadius="12px" overflow="hidden">
+              <Box
+                w={{ base: "auto", lg: "50%" }}
+                h="380px"
+                borderRadius="12px"
+                overflow="hidden"
+              >
                 <Image
                   w="100%"
                   h="100%"
@@ -78,12 +84,13 @@ export default class Responsive extends Component {
           </Box>
           <Box p="30px 10px 20px 0px">
             <Flex
+              flexDirection={{ base: "column-reverse", lg: "row" }}
               justifyContent="space-between"
               bg="#CDE2C7"
               borderRadius="12px"
               overflow="hidden"
             >
-              <Box w="40%" p="30px 0px 30px  30px">
+              <Box w={{ base: "auto", lg: "40%" }} p="30px 0px 30px  30px">
                 <Text fontSize="40px" fontFamily="RFFONTROMAN">
                   Self-Care Essentials
                 </Text>
@@ -101,7 +108,7 @@ export default class Responsive extends Component {
                   </Box>
                 </Link>
               </Box>
-              <Box w="50%">
+              <Box w={{ base: "auto", lg: "50%" }} h="380px">
                 <Image
                   w="100%"
                   h="100%"
@@ -113,12 +120,13 @@ export default class Responsive extends Component {
           </Box>
           <Box p="30px 20px 20px 0px">
             <Flex
+              flexDirection={{ base: "column-reverse", lg: "row" }}
               justifyContent="space-between"
               bg="#F1E1DD"
               borderRadius="12px"
               overflow="hidden"
             >
-              <Box w="40%" p="30px 0px 30px  30px">
+              <Box w={{ base: "auto", lg: "40%" }} p="30px 0px 30px  30px">
                 <Text
                   fontSize="40px"
                   fontFamily="RFFONTROMAN"
@@ -140,7 +148,7 @@ export default class Responsive extends Component {
                   </Box>
                 </Link>
               </Box>
-              <Box w="50%">
+              <Box w={{ base: "auto", lg: "50%" }} h="380px">
                 <Image
                   w="100%"
                   h="100%"

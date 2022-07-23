@@ -16,9 +16,15 @@ const Baner = () => {
           backgroundImage={`url(
           https://www.rodanandfields.com/en-us/medias/22-Regimen-Collage-HP-Banner-72.jpg?context=bWFzdGVyfHJvb3R8Njc0MDM5fGltYWdlL2pwZWd8aGIzL2g0NS8xNTQwNjc0NzU4MjQ5NC5qcGd8MzM4MmE5NDA3ODZiNjZjOGU5ZWQ3MzVmMDJlN2E3YWFjY2ZhMDg1MmY1YzI4ZGRhYzM4YjU4ZGVhZDljYjZhNQ
         )`}
-          backgroundSize={"cover"}
+          backgroundSize={{ base: "contain", xl: "cover" }}
+          backgroundRepeat="no-repeat"
         >
-          <VStack w={"25%"} p={"30px"} ml={"30px"} pb={"40px"}>
+          <VStack
+            w={{ base: "auto", md: "50%", lg: "25%" }}
+            p={"30px"}
+            ml={"30px"}
+            pb={"40px"}
+          >
             <Heading
               fontFamily={"RFFONTROMAN"}
               fontSize={"40px"}
