@@ -7,8 +7,6 @@ import { Provider } from "react-redux";
 import { store } from "./Redux/store.js";
 import { BrowserRouter } from "react-router-dom";
 
-
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
@@ -18,5 +16,5 @@ root.render(
         <App />
       </ChakraProvider>
     </Provider>
-   </BrowserRouter>
+  </BrowserRouter>
 );

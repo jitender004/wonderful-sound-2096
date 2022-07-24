@@ -1,45 +1,74 @@
+import {
+  Box,
+  Button,
+  Heading,
+  Text,
+  Link,
+  Input,
+  Image,
+  HStack,
+} from "@chakra-ui/react";
 
-import { Box, Button, Heading, Text , Link, Input,Image, HStack} from '@chakra-ui/react'
-
-import { ExternalLinkIcon,DeleteIcon } from '@chakra-ui/icons'
-
-
-import React,{useEffect, useState} from 'react'
-import axios from 'axios';
+import { DeleteIcon } from "@chakra-ui/icons";
+import { Link as RouterLink, Router } from "react-router-dom";
+import { useSelector } from "react-redux";
+import React, { useState } from "react";
+import Footer from "./../Footer";
+import Navbar from "./../Navbar";
 
 const Cart = () => {
-   const [bag, setBag] = useState([]);
-   let [count, setCount] = useState(1);
-   
-        useEffect(()=>{
-            axios.get("https://rodan-field.herokuapp.com/api/products")
-            .then((res)=>{
-               setBag(res.data)
-            })          
-        },[])
+  const cartItems = useSelector((state) => state.AuthReducer.cartItems);
+  const [count, setCount] = useState(1);
+  const [total, setTotal] = useState(0);
 
-      const counter1=()=>{
-          if(count>=1){
-          setCount(count  - 1)
-          }
-      }  
-      const counter2=()=>{
-          setCount(count + 1)
-      }  
-    console.log("beg", bag)
+
+  
+
+  const counter1=()=>{
+     if(count>=1){
+     setCount(count  - 1)
+     }
+ }  
+ const counter2=()=>{
+     setCount(count + 1)
+ }  
+  console.log(cartItems);
+
   return (
-    <Box  justifyContent="center">
-         <Heading as='p' textAlign="center"  fontFamily="RFFontRoman, Arial, sans-serif;" size='30px' fontWeight="500"  lineHeight="36px" color="#272829">
-                   REVIEW YOUR BAG
-         </Heading>
-         <Box justifyContent="center" >
-            <Box border=""  width="65%"  marginLeft="17%">
-                 <Box backgroundColor="rgb(210,216,250)" height="40px"   justifyContent="center" >
-                        <Text fontSize='10px' lineHeight="18px" color="#31668c" fontWeight="400"> Thank you for your order. Please note that R+F Instant 
-                        Targeted Firming Gel Full Size will be shipped separately on a later date in July. 
-                         </Text>
-                 </Box>
-                 
+   <>
+   <Navbar/>
+    <Box justifyContent="center">
+      <Heading
+        as="p"
+        textAlign="center"
+        fontFamily="RFFontRoman, Arial, sans-serif;"
+        size="30px"
+        fontWeight="500"
+        lineHeight="36px"
+        color="#272829"
+      >
+        REVIEW YOUR BAG
+      </Heading>
+      <Box justifyContent="center">
+        <Box border="" width="65%" marginLeft="17%">
+          <Box
+            backgroundColor="rgb(210,216,250)"
+            height="40px"
+            justifyContent="center"
+          >
+            <Text
+              fontSize="10px"
+              lineHeight="18px"
+              color="#31668c"
+              fontWeight="400"
+            >
+              {" "}
+              Thank you for your order. Please note that R+F Instant Targeted
+              Firming Gel Full Size will be shipped separately on a later date
+              in July.
+            </Text>
+          </Box>
+
 
  {/* profuct box and order summery */}
                 <Box display="flex" marginTop="20px">
@@ -59,10 +88,11 @@ const Cart = () => {
 {/* left half after add MEMBERSHIP */}
                       
                         {
-                           bag.map((e)=>{
+                           cartItems.map((e)=>{
                               return(
                                 <>
-                            
+                                  
+                                
                                   <HStack key={e.id} spacing='24px' border="1px solid grey" height="98px" justifyContent="space-evenly" >
                                       <Box boxSize='50px'>
                                           <Image src={e.img} alt='Dan Abramov' />
@@ -96,7 +126,7 @@ const Cart = () => {
                            </Box>     
                            <Box display="flex"   marginTop="5px" >
                              <Text fontSize='10px'  fontWeight="500" color="black" textAlign="left" padding="5px"  lineHeight="5px"> SUB TOTAL </Text>
-                             <Text fontSize='10px'  fontWeight="500" color="black" marginLeft="40%"  padding="5px"  justifyContent="end" lineHeight="5px"> $ 150.0 </Text>
+                             <Text fontSize='10px'  fontWeight="500" color="black" marginLeft="40%"  padding="5px"  justifyContent="end" lineHeight="5px"> $ 229.0 </Text>
                            </Box>    
                            <Box display="flex"   marginTop="5px" >
                              <Text fontSize='10px'  fontWeight="500" color="black" textAlign="left" padding="5px" paddingTop="5px" lineHeight="5px"> SHIPPING </Text>
@@ -105,7 +135,7 @@ const Cart = () => {
                            <hr/>  
                            <Box display="flex"   marginTop="5px" >
                              <Text fontSize='10px'  fontWeight="600" color="black" textAlign="left" padding="5px" paddingTop="5px" lineHeight="5px"> Estimated Total </Text>
-                             <Text fontSize='10px'  fontWeight="600" color="black" marginLeft="30%"  padding="5px" paddingTop="5px" justifyContent="end" lineHeight="5px">$105.00 </Text>
+                             <Text fontSize='10px'  fontWeight="600" color="black" marginLeft="30%"  padding="5px" paddingTop="5px" justifyContent="end" lineHeight="5px">$229.00 </Text>
                            </Box>    
                            <hr/>
                            <Box display="flex"   marginTop="10px" >
@@ -121,10 +151,12 @@ const Cart = () => {
                                         <Text fontSize='10px'  fontWeight="500" color="black" textAlign="left" padding="5px" paddingTop="0px" lineHeight="18px"> CONTINUE  SHOPING </Text>
                            </Button>
                            <br/>
-                           <Button height="30px" borderRadius="5px" marginTop="8px"  border="1px solid black" width="100%" bg="black">
-                                        <Text fontSize='10px'  fontWeight="500" color="white"   padding="5px" paddingTop="0px" lineHeight="18px">SECURE CHECKOUT</Text>
+                          <RouterLink to="/checkout">
+                          <Button  height="30px" borderRadius="5px" marginTop="8px"  border="1px solid black" width="100%" bg="black">
+                                        <Text fontSize='10px'  fontWeight="500" color="white"   padding="5px" paddingTop="0px"  lineHeight="18px">SECURE CHECKOUT</Text>
                                         
                            </Button>
+                          </RouterLink>
  
                            <HStack spacing='4px' justifyContent="space-evenly" marginTop="5px">
                                 <Box >
@@ -153,9 +185,13 @@ const Cart = () => {
                 </Box>
             </Box>            
          </Box>
-    </Box>
-  )
-}
 
-export default Cart
+          {/* profuct box and order summery */}
+          
+     </Box>
+    
+    <Footer/></>
+  );
+};
 
+export default Cart;

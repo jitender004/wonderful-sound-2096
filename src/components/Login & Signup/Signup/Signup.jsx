@@ -22,6 +22,8 @@ import {
 import { getUserRegistration } from "../../../Redux/AuthReducer/action.js";
 import { REGISTER_USER_SUCCESS } from "../../../Redux/AuthReducer/action.type.js";
 import Navbar from "./../../Navbar";
+import { useNavigate, Link as RouterLink } from "react-router-dom";
+import Footer from "./../../Footer";
 
 const InputStyle = {
   focusBorderColor: "none",
@@ -41,11 +43,15 @@ const Signup = () => {
   const [passMatch, setPassMatch] = useState(true);
   const [charactor, setCharactor] = useState({});
   const dispatch = useDispatch();
-  const { isLoading } = useSelector((state) => state.AuthReducer);
+  const navigate = useNavigate();
+  const { isAuth, isLoading } = useSelector((state) => state.AuthReducer);
 
   useEffect(() => {
     document.title = "Rodan + Fields® | Signup";
-  }, []);
+    if (isAuth) {
+      navigate("/");
+    }
+  }, [isAuth, navigate]);
 
   const handleClick = () => setShow(!show);
   const handleRegistrationEnter = (e) => {
@@ -65,7 +71,7 @@ const Signup = () => {
     setFieldReq(false);
     dispatch(getUserRegistration(user)).then((res) => {
       if (res.type === REGISTER_USER_SUCCESS && res.errorStatus === false) {
-        return console.log("redirect");
+        return navigate("/login", { replace: true });
       } else if (
         res.type === REGISTER_USER_SUCCESS &&
         res.errorStatus === true
@@ -167,7 +173,7 @@ const Signup = () => {
   return (
     <>
       <Navbar />
-      <Box w={["22rem", "25rem"]} m="auto">
+      <Box w={["22rem", "25rem"]} m="auto" mb="6rem">
         <Text
           textTransform="upperCase"
           textAlign="center"
@@ -364,9 +370,10 @@ const Signup = () => {
             color: "#111",
           }}
         >
-          Sign In
+          <RouterLink to="/login"> Sign In</RouterLink>
         </Button>
       </Box>
+      <Footer/>
     </>
   );
 };

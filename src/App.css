@@ -3,3 +3,18 @@
   padding: 0;
   box-sizing: border-box;
 }
+.slik-prev {
+  width: 50px;
+  background-color: #808080;
+  padding: 80px 0px;
+  z-index: 111111;
+  left: 10px;
+}
+.slick-next {
+  width: 50px;
+  background-color: #808080;
+  padding: 80px 0px;
+  z-index: 111111;
+  right: -10px;
+  color: black;
+}

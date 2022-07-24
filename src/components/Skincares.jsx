@@ -7,7 +7,10 @@ import {
   Button,
   Flex,
   Text,
+  Link,
 } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
+// import { Link } from "react-router-dom";
 const skinCares = [
   {
     id: "1",
@@ -122,12 +125,13 @@ const Skincares = () => {
   const [data, setData] = useState(skinCares);
   const [over, setOver] = useState(false);
   const [out, setOut] = useState(true);
+  const navigate = useNavigate();
   const handleMouseOver = (index) => {
     if (over) {
       return;
     }
-    data[index].images[0].status = !data[index].images[0].status;
-    data[index].images[1].status = !data[index].images[1].status;
+    data[index].images[0].status = false;
+    data[index].images[1].status = true;
     setOver(true);
     setOut(false);
     setData([...data]);
@@ -139,8 +143,8 @@ const Skincares = () => {
     }
     setOut(true);
     setOver(false);
-    data[index].images[0].status = !data[index].images[0].status;
-    data[index].images[1].status = !data[index].images[1].status;
+    data[index].images[0].status = true;
+    data[index].images[1].status = false;
     setData([...data]);
   };
 
@@ -152,11 +156,15 @@ const Skincares = () => {
         fontWeight="normal"
         color="#222222"
         textAlign="center"
-        pt="60px"
+        pt="40px"
       >
         Derm Inspired Skincare for <i>Every</i> Concern
       </Text>
-      <Grid templateColumns="repeat(6, 1fr)" gap={5} mt="40px">
+      <Grid
+        templateColumns={{ base: "repeat(2, 1fr)", lg: "repeat(6, 1fr)" }}
+        gap={5}
+        mt="40px"
+      >
         {data.map((el, index) => {
           return (
             <Box
@@ -195,12 +203,13 @@ const Skincares = () => {
       </Grid>
       <Flex justifyContent="center" pt="50px" pb="50px">
         <Button
-          w="25%"
+          href="#"
           m="auto"
-          pys="15px"
+          px="30px"
           color="#222222"
           border="1px solid black"
           bg="#FFFFFF"
+          onClick={() => navigate("/allProducts")}
         >
           Shop All Products
         </Button>

@@ -5,10 +5,14 @@ import { Box, Image ,Text, Input, Slider,
     SliderMark,} from '@chakra-ui/react'
  import { ExternalLinkIcon,DeleteIcon } from '@chakra-ui/icons'
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const Checkout = () => {
+   const navigate = useNavigate();
    const alertFun=()=>{
-      alert("Your order Has been Placed")
+      alert("Your order Has been Placed");
+      return navigate("/", {replace: true})
+     
    }
   return (
     <Box >
@@ -73,7 +77,7 @@ const Checkout = () => {
                                      </Box>
 
                                      <Box justifyContent="right" textAlign="right" paddingLeft="45%">                                        
-                                          <Text fontSize='10px'  fontWeight="400" color="black"  padding="5px"  lineHeight="5px"> $350.00</Text>
+                                          <Text fontSize='10px'  fontWeight="400" color="black"  padding="5px"  lineHeight="5px"> $229.00</Text>
                                      </Box>
                             </HStack>
                     </Box>
@@ -81,7 +85,7 @@ const Checkout = () => {
   {/* sub total flex */}
                     <Box display="flex" justifyContent="space-between" padding="10px">
                        <Text fontSize='10px'  fontWeight="400" color="black"    lineHeight="5px"> Subtotal</Text>
-                       <Text fontSize='10px'  fontWeight="400" color="black"    lineHeight="5px">$350.00</Text>
+                       <Text fontSize='10px'  fontWeight="400" color="black"    lineHeight="5px">$229.00</Text>
                     </Box>
                     <Box display="flex" justifyContent="space-between" padding="10px">
                        <Text fontSize='10px'  fontWeight="400" color="black"    lineHeight="5px"> Estimated Tax</Text>
@@ -96,7 +100,7 @@ const Checkout = () => {
                     
                     <Box display="flex" justifyContent="space-between" padding="10px">
                        <Text fontSize='12px'  fontWeight="500" color="black"    lineHeight="5px">TOTAL (1 Items)</Text>
-                       <Text fontSize='12px'  fontWeight="400" color="black"    lineHeight="5px">$350.00</Text>
+                       <Text fontSize='12px'  fontWeight="400" color="black"    lineHeight="5px">$229.00</Text>
                     </Box>
                      
                  </Box>
