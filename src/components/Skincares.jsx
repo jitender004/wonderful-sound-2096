@@ -156,11 +156,15 @@ const Skincares = () => {
         fontWeight="normal"
         color="#222222"
         textAlign="center"
-        pt="60px"
+        pt="40px"
       >
         Derm Inspired Skincare for <i>Every</i> Concern
       </Text>
-      <Grid templateColumns="repeat(6, 1fr)" gap={5} mt="40px">
+      <Grid
+        templateColumns={{ base: "repeat(2, 1fr)", lg: "repeat(6, 1fr)" }}
+        gap={5}
+        mt="40px"
+      >
         {data.map((el, index) => {
           return (
             <Box
@@ -200,13 +204,12 @@ const Skincares = () => {
       <Flex justifyContent="center" pt="50px" pb="50px">
         <Button
           href="#"
-          w="25%"
           m="auto"
-          pys="15px"
+          px="30px"
           color="#222222"
           border="1px solid black"
           bg="#FFFFFF"
-          onClick={() => navigate("/#")}
+          onClick={() => navigate("/allProducts")}
         >
           Shop All Products
         </Button>

@@ -13,12 +13,16 @@ import { DeleteIcon } from "@chakra-ui/icons";
 import { Link as RouterLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import React from "react";
+import Footer from "./../Footer";
+import Navbar from "./../Navbar";
 
 const Cart = () => {
   const cartItems = useSelector((state) => state.AuthReducer.cartItems);
 
   console.log(cartItems);
   return (
+   <>
+   <Navbar/>
     <Box justifyContent="center">
       <Heading
         as="p"
@@ -392,6 +396,7 @@ const Cart = () => {
         </Box>
       </Box>
     </Box>
+    <Footer/></>
   );
 };
 

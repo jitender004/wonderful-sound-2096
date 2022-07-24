@@ -1,15 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Box,
   Flex,
+  Text,
   HStack,
-  Link,
   Image,
   IconButton,
   useDisclosure,
-  useColorModeValue,
   Stack,
-  Text,
 } from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
 import { HamburgerIcon, CloseIcon, SearchIcon } from "@chakra-ui/icons";
@@ -17,24 +15,29 @@ import Shop from "./Shop";
 import Featured from "./Featured";
 import OurStory from "./OurStory";
 import Searchbar from "./Searchbar";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { getUserDetails } from "../Redux/AuthReducer/action.js";
+import { loadData } from "../utils/LocalStorage.js";
+import { Link as HomeLink } from "react-router-dom";
 
-const Links = ["Dashboard", "Projects", "Team"];
+// const Links = ["Dashboard", "Projects", "Team"];
 
-const NavLink = ({ children }) => (
-  <Link
-    px={2}
-    py={1}
-    rounded={"md"}
-    _hover={{
-      textDecoration: "none",
-      bg: useColorModeValue("gray.200", "gray.700"),
-    }}
-    href={"#"}
-  >
-    {children}
-  </Link>
-);
+// const Links = ["Sign In", "Search"];
+
+// const NavLink = ({ children }) => (
+//   <Link
+//     px={2}
+//     py={1}
+//     rounded={"md"}
+//     _hover={{
+//       textDecoration: "none",
+//       bg: useColorModeValue("gray.200", "gray.700"),
+//     }}
+//     href={"#"}
+//   >
+//     {children}
+//   </Link>
+// );
 
 export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -43,6 +46,14 @@ export default function Navbar() {
   const [ourStoryStatus, setOurStoryStatus] = useState(false);
   const [searchStatus, setSearchStatus] = useState(false);
   const { isAuth, cartItems } = useSelector((state) => state.AuthReducer);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (isAuth) {
+      dispatch(getUserDetails(loadData("usename")));
+    }
+  }, [dispatch, isAuth]);
 
   return (
     <>
@@ -60,29 +71,30 @@ export default function Navbar() {
             justifyContent={"space-between"}
           >
             <IconButton
-              size={["sm", "md", "lg", "xl"]}
               icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
               aria-label={"Open Menu"}
-              display={{ sm: "block", md: "none" }}
+              display={{ base: "block", md: "none" }}
               onClick={isOpen ? onClose : onOpen}
             />
-            <Box fontSize={"12px"} display={{ sm: "none", md: "block" }}>
+            <Box fontSize={"12px"} display={{ base: "none", md: "block" }}>
               FIND A CONSULTANT
             </Box>
-            <Box>
-              <RouterLink to="/">
+            <HomeLink to="/">
+              <Box>
                 <Image
                   src={
                     "https://www.rodanandfields.com/en-us/medias/rf-logo.svg?context=bWFzdGVyfGltYWdlc3w3MzczfGltYWdlL3N2Zyt4bWx8aW1hZ2VzL2g2MC9oYWIvODgyMjE0NzE4NjcxOC5zdmd8YjNmMmU2YTg5MTM0NTMzM2Y2ODg2ZmRkZTJhNmY2OWZhYmYyYjk5NWQxODkxODFiYjVkY2MxY2NjOWRlMzA5OA"
                   }
                 />
-              </RouterLink>
-            </Box>
+              </Box>
+            </HomeLink>
+
             <Flex alignItems={"center"} gridGap={7}>
               <Flex
                 onClick={() => setSearchStatus(!searchStatus)}
                 alignItems={"center"}
                 gridGap={2}
+                display={{ base: "none", md: "flex" }}
               >
                 <Box fontSize={"12px"}>Search</Box>
                 <SearchIcon h={4} />
@@ -140,14 +152,23 @@ export default function Navbar() {
           {isOpen ? (
             <Box pb={4} display={{ md: "none" }}>
               <Stack as={"nav"} spacing={4}>
-                {Links.map((link) => (
-                  <NavLink key={link}>{link}</NavLink>
-                ))}
+                <Text pl={{ base: "20px" }} fontWeight="bold" fontSize="14px">
+                  FIND A CONSULTANT{" "}
+                </Text>
+                <Flex gridGap="10px" alignItems="center" pl="10px">
+                  <Image
+                    h={3}
+                    src={
+                      "https://cdn-icons-png.flaticon.com/512/747/747376.png"
+                    }
+                  />
+                  <Text> Sign in</Text>
+                </Flex>
               </Stack>
             </Box>
           ) : null}
         </Box>
-        <Box display={{ xs: "none" }}>
+        <Box display={{ base: "none", md: "block" }}>
           <HStack
             w={"55%"}
             maxWidth={"1260px"}
@@ -161,14 +182,18 @@ export default function Navbar() {
           >
             <Box
               onMouseOver={() => setShopStatus(true)}
-              onMouseOut={() => setShopStatus(false)}
+              onMouseOut={() => {
+                // setTimeout(() => {
+                setShopStatus(false);
+                // }, 200);
+              }}
               _hover={{ borderBottom: "2px solid #77B6ED" }}
               py={6}
             >
               SHOP
             </Box>
             <Box _hover={{ borderBottom: "2px solid #77B6ED" }} py={6}>
-              <RouterLink to="/bestsellers"> BEST SELLERS</RouterLink>
+              BEST SELLERS
             </Box>
             <Box
               onMouseOver={() => setFeaturedStatus(true)}

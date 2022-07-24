@@ -22,7 +22,7 @@ export const InstaFeed = () => {
     slidesToShow: 4,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 4000,
+    autoplaySpeed: 2000,
   };
 
   const handleMouseOver = (index) => {
@@ -49,7 +49,13 @@ export const InstaFeed = () => {
 
   return (
     <>
-      <Box maxW="1360px" m="auto" overflowX="hidden" py="30px">
+      <Box
+        maxW="1360px"
+        m="auto"
+        overflowX="hidden"
+        py="30px"
+        display={{ base: "none", lg: "block" }}
+      >
         <Text fontWeight="400" fontSize="22px" color="#56575f">
           @Rodanandfields
         </Text>
@@ -99,17 +105,24 @@ export const InstaFeed = () => {
       </Box>
       <Box bg="#E1EAF1" py="30px">
         <Flex
-          w="70%"
+          w={{ base: "auto", lg: "70%" }}
           m="auto"
           bg="#FFFFFF"
+          flexDirection={{ base: "column", lg: "row" }}
           justifyContent="space-between"
           p="10px 20px"
           borderRadius="6px"
+          gridGap="20px"
         >
-          <Flex gridGap="20px">
+          <Flex
+            gridGap="20px"
+            flexDirection={{ base: "column", lg: "row" }}
+            alignItems="center"
+          >
             <Text
-              w="50%"
-              pl="60px"
+              textAlign={{ base: "center" }}
+              w={{ base: "auto", lg: "50%" }}
+              pl={{ lg: "60px" }}
               fontFamily="RFFontRoman"
               fontSize="30px"
               fontWeight="normal"
@@ -117,16 +130,21 @@ export const InstaFeed = () => {
             >
               Personalized Skincare Services
             </Text>
-            <UnorderedList fontFamily="ProximaNovaRegular,Arial,Sans-Serif;">
+            <UnorderedList
+              fontFamily="ProximaNovaRegular,Arial,Sans-Serif;"
+              textAlign={{ base: "center" }}
+              display="inline-block"
+            >
               <ListItem>Customized recommendations</ListItem>
               <ListItem> Learn more about our products</ListItem>
               <ListItem>Enjoy ongoing skincare advice</ListItem>
             </UnorderedList>
           </Flex>
           <Button
-            mr="30px"
-            mt="20px"
-            px="30px"
+            mr={{ lg: "30px" }}
+            mt={{ lg: "20px" }}
+            px={{ base: "30px" }}
+            m={{ base: "auto" }}
             colorScheme="black"
             variant={"outline"}
           >

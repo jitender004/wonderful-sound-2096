@@ -17,6 +17,7 @@ import { LOGIN_USER_SUCCESS } from "../../../Redux/AuthReducer/action.type.js";
 import { useNavigate, useLocation } from "react-router-dom";
 import Navbar from "./../../Navbar";
 import { Link as RouterLink } from "react-router-dom";
+import Footer from "./../../Footer";
 const InputStyle = {
   focusBorderColor: "none",
 };
@@ -68,7 +69,7 @@ const Login = () => {
   return (
     <>
       <Navbar />
-      <Box w={["22rem", "25rem"]} m="auto">
+      <Box w={["22rem", "25rem"]} m="auto" mb="6rem">
         <Text
           textTransform="upperCase"
           textAlign="center"
@@ -174,6 +175,7 @@ const Login = () => {
           <RouterLink to="/signup">Create new Account</RouterLink>
         </Button>
       </Box>
+      <Footer/>
     </>
   );
 };
