@@ -22,6 +22,7 @@ const AccountDetails = () => {
   useEffect(() => {
     if (isAuth) {
       dispatch(getUserDetails(loadData("usename")));
+      document.title="Rodan + Fields® | Account"
     }
   }, [dispatch, isAuth]);
 
