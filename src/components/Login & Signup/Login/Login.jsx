@@ -14,8 +14,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { getUserLogin } from "../../../Redux/AuthReducer/action.js";
 import { LOGIN_USER_SUCCESS } from "../../../Redux/AuthReducer/action.type.js";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import Navbar from "./../../Navbar";
+import { Link as RouterLink } from "react-router-dom";
+import Footer from "./../../Footer";
 const InputStyle = {
   focusBorderColor: "none",
 };
@@ -25,11 +27,17 @@ const Login = () => {
   const [fieldReq, setFieldReq] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { isError, isLoading } = useSelector((state) => state.AuthReducer);
-
+  const location = useLocation();
+  const { isAuth, isError, isLoading } = useSelector(
+    (state) => state.AuthReducer
+  );
+  const coming = location?.state?.from?.pathname;
   useEffect(() => {
     document.title = "Rodan + Fields® | Login";
-  }, []);
+    if (isAuth) {
+      navigate("/", { replace: true });
+    }
+  }, [isAuth, navigate]);
 
   const handleClick = () => setShow(!show);
   const handleLoginEnter = (e) => {
@@ -44,8 +52,8 @@ const Login = () => {
     setFieldReq(false);
 
     dispatch(getUserLogin(user)).then((res) => {
-      if (res === LOGIN_USER_SUCCESS) {
-        navigate("/", { replace: true });
+      if (res.type === LOGIN_USER_SUCCESS) {
+        navigate(`${coming}`, { replace: true });
       }
     });
   };
@@ -61,7 +69,7 @@ const Login = () => {
   return (
     <>
       <Navbar />
-      <Box w={["22rem", "25rem"]} m="auto">
+      <Box w={["22rem", "25rem"]} m="auto" mb="6rem">
         <Text
           textTransform="upperCase"
           textAlign="center"
@@ -93,7 +101,7 @@ const Login = () => {
             {...InputStyle}
             type="text"
             name="username"
-            onChange={(e)=>handleLogin(e)}
+            onChange={(e) => handleLogin(e)}
           />
           <HStack justifyContent="space-between">
             <Text>Password</Text>
@@ -107,7 +115,7 @@ const Login = () => {
               type={show ? "text" : "password"}
               name="password"
               {...InputStyle}
-              onChange={(e)=>handleLogin(e)}
+              onChange={(e) => handleLogin(e)}
             />
             <InputRightElement width="4.5rem">
               <Box h="1.75rem" size="sm" onClick={handleClick}>
@@ -164,9 +172,10 @@ const Login = () => {
             color: "#111",
           }}
         >
-          Create new Account
+          <RouterLink to="/signup">Create new Account</RouterLink>
         </Button>
       </Box>
+      <Footer/>
     </>
   );
 };

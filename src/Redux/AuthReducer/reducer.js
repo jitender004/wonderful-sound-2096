@@ -7,6 +7,7 @@ const initalState = {
   isLoading: false,
   token: loadData("token") || "",
   userData: loadData("userData") || [],
+  cartItems: loadData("cartItems") || [],
 };
 export const reducer = (state = initalState, { type, payload }) => {
   switch (type) {
@@ -41,7 +42,6 @@ export const reducer = (state = initalState, { type, payload }) => {
     case types.LOGIN_USER_SUCCESS:
       saveData("token", payload);
       saveData("isAuth", true);
-    
 
       return {
         ...state,
@@ -82,6 +82,25 @@ export const reducer = (state = initalState, { type, payload }) => {
       return {
         ...state,
         isLoading: false,
+      };
+    case types.USER_LOGOUT:
+      saveData("userData", "");
+      saveData("isAuth", false);
+      saveData("token", "");
+      return {
+        ...state,
+        token: "",
+        isAuth: false,
+        userData: [],
+      };
+
+    case types.ADD_TO_CART:
+      const CurrentItems = [...state.cartItems, payload];
+
+      saveData("cartItems", CurrentItems);
+      return {
+        ...state,
+        cartItems: CurrentItems,
       };
 
     default:

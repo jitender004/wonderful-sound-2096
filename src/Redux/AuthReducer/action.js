@@ -1,6 +1,6 @@
 import * as types from "./action.type.js";
 import axios from "axios";
-import { loadData,saveData } from "../../utils/LocalStorage.js";
+import { loadData, saveData } from "../../utils/LocalStorage.js";
 
 export const getUserRegistration = (payload) => (dispatch) => {
   const userDetails = {
@@ -37,7 +37,7 @@ export const getUserLogin = (payload) => (dispatch) => {
     .post(`https://masai-api-mocker.herokuapp.com/auth/login`, payload)
     .then((res) => {
       dispatch({ type: types.LOGIN_USER_SUCCESS, payload: res.data.token });
-      saveData("usename",payload.username)
+      saveData("usename", payload.username);
       return { type: types.LOGIN_USER_SUCCESS };
     })
     .catch((err) => {
@@ -55,9 +55,17 @@ export const getUserDetails = (payload) => (dispatch) => {
     })
     .then((res) => {
       dispatch({ type: types.PROFILE_USER_SUCCESS, payload: res.data });
-      
     })
     .catch((err) => {
       dispatch({ type: types.PROFILE_USER_FAILURE });
     });
+};
+
+export const logoutFun = (pyaload) => (dispatch) => {
+  dispatch({ type: types.USER_LOGOUT });
+  return { type: types.USER_LOGOUT };
+};
+
+export const addToCartItem = (payload) => (dispatch) => {
+  dispatch({ type: types.ADD_TO_CART, payload });
 };

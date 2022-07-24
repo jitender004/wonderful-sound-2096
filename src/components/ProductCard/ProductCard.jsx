@@ -1,8 +1,15 @@
 import { Box, Button, Image, Text } from "@chakra-ui/react";
 import React from "react";
 import StarRating from "./StarRating";
-
+import { addToCartItem } from "../../Redux/AuthReducer/action.js";
+import { useDispatch } from "react-redux";
 const ProductCard = ({ products, cate }) => {
+  const dispatch = useDispatch();
+
+  const handleAddToBag = (e, products) => {
+    dispatch(addToCartItem(products));
+  };
+
   return (
     <>
       {products.map((products) => (
@@ -43,6 +50,7 @@ const ProductCard = ({ products, cate }) => {
               bgColor={"white"}
               fontFamily={"sans-serif"}
               fontWeight={"light"}
+              onClick={(e) => handleAddToBag(e, products)}
             >
               ADD TO BAG
             </Button>

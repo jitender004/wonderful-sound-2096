@@ -1,16 +1,15 @@
-import { ReactNode, useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import {
   Box,
   Flex,
   Text,
   HStack,
-  Link,
   Image,
   IconButton,
   useDisclosure,
-  useColorModeValue,
   Stack,
 } from "@chakra-ui/react";
+import { Link as RouterLink } from "react-router-dom";
 import { HamburgerIcon, CloseIcon, SearchIcon } from "@chakra-ui/icons";
 import Shop from "./Shop";
 import Featured from "./Featured";
@@ -20,22 +19,25 @@ import { useSelector, useDispatch } from "react-redux";
 import { getUserDetails } from "../Redux/AuthReducer/action.js";
 import { loadData } from "../utils/LocalStorage.js";
 import { Link as HomeLink } from "react-router-dom";
-const Links = ["Sign In", "Search"];
 
-const NavLink = ({ children }) => (
-  <Link
-    px={2}
-    py={1}
-    rounded={"md"}
-    _hover={{
-      textDecoration: "none",
-      bg: useColorModeValue("gray.200", "gray.700"),
-    }}
-    href={"#"}
-  >
-    {children}
-  </Link>
-);
+// const Links = ["Dashboard", "Projects", "Team"];
+
+// const Links = ["Sign In", "Search"];
+
+// const NavLink = ({ children }) => (
+//   <Link
+//     px={2}
+//     py={1}
+//     rounded={"md"}
+//     _hover={{
+//       textDecoration: "none",
+//       bg: useColorModeValue("gray.200", "gray.700"),
+//     }}
+//     href={"#"}
+//   >
+//     {children}
+//   </Link>
+// );
 
 export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -43,7 +45,8 @@ export default function Navbar() {
   const [featuredStatus, setFeaturedStatus] = useState(false);
   const [ourStoryStatus, setOurStoryStatus] = useState(false);
   const [searchStatus, setSearchStatus] = useState(false);
-  const { isAuth, userData } = useSelector((state) => state.AuthReducer);
+  const { isAuth, cartItems } = useSelector((state) => state.AuthReducer);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -96,30 +99,53 @@ export default function Navbar() {
                 <Box fontSize={"12px"}>Search</Box>
                 <SearchIcon h={4} />
               </Flex>
-              <Flex
-                alignItems={"center"}
-                gridGap={2}
-                display={{ base: "none", md: "flex" }}
-              >
-                {isAuth ? null : <Box fontSize={"12px"}>Sign in</Box>}
 
-                <Box>
-                  <Image
-                    h={3}
-                    src={
-                      "https://cdn-icons-png.flaticon.com/512/747/747376.png"
-                    }
-                  />
-                </Box>
+              <Flex alignItems={"center"} gridGap={2}>
+                {isAuth ? (
+                  <RouterLink to="/accountdetails">
+                    <Image
+                      h={3}
+                      src={
+                        "https://cdn-icons-png.flaticon.com/512/747/747376.png"
+                      }
+                    />
+                  </RouterLink>
+                ) : (
+                  <RouterLink to="/login">
+                    <Flex gridGap={2} alignItems={"center"}>
+                      <Box fontSize={"12px"}>Sign in</Box>
+                      <Image
+                        h={3}
+                        src={
+                          "https://cdn-icons-png.flaticon.com/512/747/747376.png"
+                        }
+                      />
+                    </Flex>
+                  </RouterLink>
+                )}
               </Flex>
-              <HomeLink to="/cart">
+
+              <RouterLink to="/cart">
+                {cartItems >= 0 ? null : (
+                  <Text
+                    position="absolute"
+                    bg="#111"
+                    w="6"
+                    h="6"
+                    color="#fff"
+                    textAlign="center"
+                    borderRadius="100%"
+                  >
+                    {cartItems?.length}
+                  </Text>
+                )}
                 <Image
-                  w="70px"
+                  h={10}
                   src={
                     "https://t3.ftcdn.net/jpg/02/18/80/56/240_F_218805689_XFdEHu12ZOap9WylFYbb04MqASrax6VL.jpg"
                   }
                 />
-              </HomeLink>
+              </RouterLink>
             </Flex>
           </Flex>
 
@@ -186,7 +212,7 @@ export default function Navbar() {
               OUR STORY
             </Box>
             <Box _hover={{ borderBottom: "2px solid #77B6ED" }} py={6}>
-              PERKS PROGRAM
+              <RouterLink to="/pcperks">PERKS PROGRAM</RouterLink>
             </Box>
             <Box
               _hover={{

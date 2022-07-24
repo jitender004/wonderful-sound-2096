@@ -48,7 +48,7 @@ const Searchbar = ({ setSearchStatus }) => {
           <Box>Active Hydration Serum</Box>
           <Box>Micro-Dermabrasion Paste</Box>
         </VStack>
-        <HStack w={"33%"} alignItems={"start"} gridGap={"10px"}>
+        <Flex w={"33%"} alignItems={"start"} gridGap={"10px"}>
           <Box>
             <Image
               w={"200px"}
@@ -87,7 +87,7 @@ const Searchbar = ({ setSearchStatus }) => {
             </VStack>
           </HStack>
         </Flex>
-      </Box>
+      </Flex>
       {/* <Box h="100vh" opacity="0.5" bg="#FFFF"></Box> */}
     </Box>
   );
