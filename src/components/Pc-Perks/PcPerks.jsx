@@ -21,10 +21,12 @@ import {
   AccordionIcon,
 } from "@chakra-ui/react";
 import React from "react";
+import Navbar from "../Navbar";
 
 const PcPerks = () => {
   return (
     <>
+      <Navbar />
       <VStack>
         <Box mb="1.5rem">
           <Text

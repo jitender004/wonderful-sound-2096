@@ -9,7 +9,8 @@ import ReqAuth from "./../ReqAuth/ReqAuth";
 import OurStory from "./../components/OurStory";
 import Error from "./Error";
 import AccountDetails from "./AccountDetails";
-
+import PcPerks from "../components/Pc-Perks/PcPerks";
+import Blog from "../components/Blogs/Blog";
 const MainRoute = () => {
   return (
     <Routes>
@@ -36,6 +37,8 @@ const MainRoute = () => {
         }
       />
 
+      <Route path="/pcperks" element={<PcPerks />} />
+      <Route path="/blog" element={<Blog />} />
       <Route path="*" element={<Error />} />
     </Routes>
   );

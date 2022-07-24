@@ -223,7 +223,7 @@ export default function Navbar() {
               BECOME A CONSULTANT
             </Box>
             <Box _hover={{ borderBottom: "2px solid #77B6ED" }} py={6}>
-              BLOG
+            <RouterLink to="/blog">BLOG</RouterLink>
             </Box>
           </HStack>
         </Box>
