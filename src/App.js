@@ -1,9 +1,11 @@
-import MainRoute from "./Pages/MainRoute";
+import MainRoute from "./pages/MainRoute";
 
 function App() {
   return (
     <div className="App">
+
       <MainRoute />
+
     </div>
   );
 }
