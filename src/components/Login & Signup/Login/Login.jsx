@@ -53,7 +53,7 @@ const Login = () => {
 
     dispatch(getUserLogin(user)).then((res) => {
       if (res.type === LOGIN_USER_SUCCESS) {
-        navigate(`${coming}`, { replace: true });
+        navigate(`${"/"}`, { replace: true });
       }
     });
   };
@@ -175,7 +175,7 @@ const Login = () => {
           <RouterLink to="/signup">Create new Account</RouterLink>
         </Button>
       </Box>
-      <Footer/>
+      <Footer />
     </>
   );
 };
