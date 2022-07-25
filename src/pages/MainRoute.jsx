@@ -39,7 +39,7 @@ const MainRoute = () => {
 
       <Route path="/pcperks" element={<PcPerks />} />
       <Route path="/blog" element={<Blog />} />
-      <Route path="*" element={<Error />} />
+      {/* <Route path="*" element={<Error />} /> */}
     </Routes>
   );
 };
