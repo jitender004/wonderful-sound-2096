@@ -27,4 +27,5 @@ github commands
 ## git push origin branchname (only push your branch )
 
 then dm me to pull request
+![read](https://user-images.githubusercontent.com/74128940/193384393-9f634237-9017-4989-a6c5-c83c48ac5271.jpg)
 
