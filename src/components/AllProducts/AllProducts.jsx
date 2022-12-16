@@ -10,7 +10,7 @@ const AllProducts = () => {
 
   useEffect(() => {
     axios({
-      url: "https://rodan-field.herokuapp.com/api/products",
+      url: "https://product-list-bcia.onrender.com/api/products",
       method: "GET",
     })
       .then((res) => {
@@ -23,7 +23,7 @@ const AllProducts = () => {
 
   useEffect(() => {
     axios({
-      url: "https://rodan-field.herokuapp.com/api/products",
+      url: "https://product-list-bcia.onrender.com/api/products",
       method: "GET",
     })
       .then((res) => {
