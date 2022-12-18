@@ -8,7 +8,10 @@ import {
   Heading,
   VStack,
 } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
+
 const Baner = () => {
+  const navigate = useNavigate();
   return (
     <>
       <Box maxWidth={"1360px"} m={"auto"}>
@@ -49,6 +52,7 @@ const Baner = () => {
               border={"1px solid black"}
               borderRadius={"8px"}
               _hover={{ variant: "outline", border: "none" }}
+              onClick={() => navigate("/allProducts")}
             >
               SHOP NOW
             </Button>

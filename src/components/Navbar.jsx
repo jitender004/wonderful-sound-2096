@@ -46,7 +46,8 @@ export default function Navbar() {
   const [ourStoryStatus, setOurStoryStatus] = useState(false);
   const [searchStatus, setSearchStatus] = useState(false);
   const { isAuth, cartItems } = useSelector((state) => state.AuthReducer);
-
+  const { cart } = useSelector((state) => state.products);
+  // console.log(cart);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -126,7 +127,7 @@ export default function Navbar() {
               </Flex>
 
               <RouterLink to="/cart">
-                {cartItems >= 0 ? null : (
+                {cart >= 0 ? null : (
                   <Text
                     position="absolute"
                     bg="#111"
@@ -136,7 +137,7 @@ export default function Navbar() {
                     textAlign="center"
                     borderRadius="100%"
                   >
-                    {cartItems?.length}
+                    {cart?.length}
                   </Text>
                 )}
                 <Image
@@ -223,7 +224,7 @@ export default function Navbar() {
               BECOME A CONSULTANT
             </Box>
             <Box _hover={{ borderBottom: "2px solid #77B6ED" }} py={6}>
-            <RouterLink to="/blog">BLOG</RouterLink>
+              <RouterLink to="/blog">BLOG</RouterLink>
             </Box>
           </HStack>
         </Box>

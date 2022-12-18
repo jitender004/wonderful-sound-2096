@@ -15,7 +15,10 @@ import {
 } from "@chakra-ui/react";
 import { bestSellers } from "../utils/data";
 import { StarIcon } from "@chakra-ui/icons";
+import { useDispatch } from "react-redux";
+import { addItemCart } from "../Redux/appReducer/action";
 export default class SwipeToSlide extends Component {
+  
   render() {
     const settings = {
       className: "center",
@@ -50,6 +53,11 @@ export default class SwipeToSlide extends Component {
         },
       ],
     };
+    // const dispatch = useDispatch();
+    // const addToCart = (item) => {
+    //   alert("Item added Successfully!");
+    //   dispatch(addItemCart(item));
+    // };
     return (
       <Box
         bg={"#F8F4EE"}
@@ -154,6 +162,7 @@ export default class SwipeToSlide extends Component {
                   mt="20px"
                   bg="#FFFFFF"
                   border="1px solid black"
+                  onClick={()=>addItemCart(item)}
                 >
                   ADD TO BAG
                 </Button>
